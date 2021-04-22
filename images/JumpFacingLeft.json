@@ -1,0 +1,36 @@
+{"frames": [
+
+{
+	"filename": "jumpFL_0.png",
+	"frame": {"x":0,"y":0,"w":23,"h":33},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":33},
+	"sourceSize": {"w":23,"h":33}
+},
+{
+	"filename": "jumpFL_1.png",
+	"frame": {"x":0,"y":33,"w":23,"h":33},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":33},
+	"sourceSize": {"w":23,"h":33}
+},
+{
+	"filename": "jumpFL_2.png",
+	"frame": {"x":0,"y":66,"w":23,"h":33},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":33},
+	"sourceSize": {"w":23,"h":33}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "JumpFacingLeft.png",
+	"format": "RGBA8888",
+	"size": {"w":23,"h":99},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:238992557fc0ed825d573388bd43364a:ad92df49b3acc2081527e53fdc9b72eb:37b518bb5927de626dba0dc9d9e926d3$"
+}
+}

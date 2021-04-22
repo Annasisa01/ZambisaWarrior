@@ -1,0 +1,36 @@
+{"frames": [
+
+{
+	"filename": "jumpFR_0.png",
+	"frame": {"x":0,"y":0,"w":23,"h":33},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":33},
+	"sourceSize": {"w":23,"h":33}
+},
+{
+	"filename": "jumpFR_1.png",
+	"frame": {"x":0,"y":33,"w":23,"h":33},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":33},
+	"sourceSize": {"w":23,"h":33}
+},
+{
+	"filename": "jumpFR_2.png",
+	"frame": {"x":0,"y":66,"w":23,"h":33},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":33},
+	"sourceSize": {"w":23,"h":33}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "JumpFacingRight.png",
+	"format": "RGBA8888",
+	"size": {"w":23,"h":99},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a48ba3d275499195e9cae85ea1d8395f:e67ef04a5ba6d543af079303999e41b5:bb8782c6175bf5a7ca77d0818cf94016$"
+}
+}
