@@ -97,6 +97,10 @@ class LightEnemy extends Entity{
         }
     }
 
+    setTarget(target){
+        this.target = target;
+    }
+
     update(){
         // const {speed} = this;
         const enemyBlocked = this.body.blocked;

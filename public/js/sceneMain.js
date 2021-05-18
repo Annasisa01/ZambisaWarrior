@@ -71,6 +71,7 @@ class SceneMain extends Phaser.Scene{
         this.scoreText = this.add.text(200, 20, 'Score: 0', { fontSize: '18px', fill: '#000' }).setScrollFactor(0).setDepth(100);
         this.golds = this.physics.add.staticGroup();
         this.enemies = this.physics.add.group({
+            collideWorldBounds: true,
             runChildUpdate: true
         });
         //Creating star rotate animation
@@ -134,11 +135,10 @@ class SceneMain extends Phaser.Scene{
                     const e = new LightEnemy(this, x, y, 'lightenemy', 10);
                     e.body.setSize(this.width,this.height,true);
                     e.setScale(scaleValue);
-                    e.body.setCollideWorldBounds(true);
-                    this.physics.add.collider(e, layer);
-                    // this.enemies.add(e);
-                    // this.physics.add.collider(this.enemies,layer);
-                    // console.log(this.enemies);
+                    // e.body.setCollideWorldBounds(true);
+                    // this.physics.add.collider(e, layer);
+                    this.enemies.add(e);
+                    this.physics.add.collider(this.enemies,layer);
                     break;
                 case 'gold':
                     const star = this.add.sprite(x, y, 'gold')
@@ -146,11 +146,11 @@ class SceneMain extends Phaser.Scene{
                     this.golds.add(star);
                     break;
                 case 'invisibleWalls':
-                    var rect = this.add.rectangle(x, y, width, height, 0x9966ff);
+                    var rect = this.add.rectangle(x, y, width, height);
                     this.physics.add.existing(rect);
                     rect.body.allowGravity = false;
                     rect.body.immovable = true;
-                    this.physics.add.collider(this.player,rect);
+                    this.physics.add.collider(this.enemies,rect);
                     this.physics.add.overlap(this.player, rect, ()=>{
                         console.log("Overlap!!!");
                     }, null, this);
@@ -160,6 +160,9 @@ class SceneMain extends Phaser.Scene{
                     break;
             }
         })
+        this.enemies.setVelocityX(100);
+        // console.log(this.enemies.getVelocityX);
+        // this.enemies.setCollideWorldBounds(true);
 
         this.physics.add.overlap(this.player, this.golds, this.collectStar, null, this);
         
@@ -187,8 +190,7 @@ class SceneMain extends Phaser.Scene{
 
         ////////////////////////////////////////////////////////
         //Collision
-        // this.physics.add.overlap(this.player, this.enemy, this.handlePlayerEnemyCollision, null, this);
-        // this.physics.add.overlap(this.player, this.enemies, this.handlePlayerEnemyCollision, null, this);
+        this.physics.add.overlap(this.player, this.enemies, this.handlePlayerEnemyCollision, null, this);
 
         ///////////////////////////////////////////////////////
         //Health Bar
@@ -205,6 +207,14 @@ class SceneMain extends Phaser.Scene{
         this.score += 10;
         this.scoreText.setText('Score: ' + this.score);
     }
+
+    myfunction(e){
+        console.log("timer has started");
+        // console.log(e);
+        this.enemies.add(e);
+
+        console.log(this.enemies);
+    }
     
     handlePlayerEnemyCollision(p,e){
         let sprite = this.player;
@@ -218,21 +228,23 @@ class SceneMain extends Phaser.Scene{
                     if (currentFrame.index == frameCount && this.player.attacked) {
                         // sound.playAudioSprite('sfx','coin');
                         this.player.attacked = false;
-                        // this.enemies.children.iterate((child) => {
-                        //     if (child.inRange) {
-                                
-                        //     }
-                        // });
-                        e.health -= 10;
+                        this.enemies.children.iterate((child) => {
+                            console.log("i am here");
+                            console.log(child.health);
+                            if (child.inRange) {
+                                child.health -= 10;
+                            }
+                        });
+                        // e.health -= 10;
                         // this.healthBar.updateHealth(p.health);
-                        if (e.health <= 0 ) {
+                        // if (this.enemies.health <= 0 ) {
                             // e.kill();
-                            this.cameras.main.shake(50, 0.02);
+                            // this.cameras.main.shake(50, 0.02);
                             // this.cameras.main.fade(2000, 0, 0, 0);
                             // this.cameras.main.once('camerafadeoutcomplete', () =>{
                             //     this.scene.restart();
                             // });
-                        }
+                        // }
                     }
                 }
                 // e.kill();             
@@ -259,22 +271,22 @@ class SceneMain extends Phaser.Scene{
         //     this.enemy.update();
         // }
         
-        // this.enemies.children.iterate((child) => {
-        //     console.log('child is => ', child);
-        //     if (!child.isDead) {
-        //         child.update();
-        //         if (child.x < 310) {
-        //             // console.log("enemy position is "+child.x);
-        //         }
-        //         if (child.x - this.player.x  <= 120 || this.player.x - child.x >= 120) {
-        //             // console.log("i am in range checker");
-        //             this.player.inRange = true;
-        //             child.inRange = true;
-        //             console.log(child.inRange);
-        //         }
+        this.enemies.children.iterate((child) => {
+            // console.log('child is => ', child);
+            if (!child.isDead) {
+                // child.update();
+                // if (child.x < 310) {
+                //     console.log("enemy position is "+child.x);
+                // }
+                if (child.x - this.player.x  <= 120 || this.player.x - child.x >= 120) {
+                    // console.log("i am in range checker");
+                    this.player.inRange = true;
+                    child.inRange = true;
+                    // console.log(child.inRange);
+                }
                 
-        //     }
-        // });
+            }
+        });
         // console.log("inRange is "+this.player.inRange);
     }//End of update
      
