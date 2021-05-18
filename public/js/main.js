@@ -7,11 +7,14 @@ window.onload = function()
         height: window.innerHeight,
         parent: 'phaser-game',
         pixelArt: true,
+        audio:{
+            // disableWebAudio: true
+        },
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 300 },
-                debug: false
+                gravity: { y: 390 },
+                debug: true
             }
         },
         scene: SceneMain

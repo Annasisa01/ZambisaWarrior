@@ -1,6 +1,8 @@
-var player,cursors,ground,controls, cam,r3,keySpace;
-var facingRight =  true;
-const scaleValue = 4;
+// const e = require("express");
+
+var cursors,ground,controls, cam;
+var doingAction = false;
+const scaleValue = 3;
 var standingHeight = 0;
 const createAlligned = (scene, count, texture, scrollFactor ) => {
     let x = 0;
@@ -35,56 +37,50 @@ class SceneMain extends Phaser.Scene{
         this.load.image('level5','assets/FORESTBACKGROUND/Layers/plant.png');
         this.load.image('level3','assets/FORESTBACKGROUND/Layers/plateau.png');
         this.load.image('level1','assets/FORESTBACKGROUND/Layers/sky.png');
-        
-        // Loading player sprites
-        // Idle sprite facing right
-        this.load.spritesheet(
-            'idle', 
-            'images/idleSpritesRight.png', 
-            {frameWidth: 23, frameHeight: 32}
-        );
-         // Idle sprite facing left
-         this.load.spritesheet(
-            'idleL', 
-            'images/idleSpritesLeft.png', 
-            {frameWidth: 23, frameHeight: 32}
-        );
-        // Running sprites facing right
-        this.load.spritesheet(
-            'runningRight',
-            'images/runningSpritesRight.png',
-            {frameWidth: 23, frameHeight: 32}
-        );
-        // Running sprites facing left
-        this.load.spritesheet(
-            'runningLeft',
-            'images/runningSpritesLeft.png',
-            {frameWidth: 23, frameHeight: 32}
-        );
-        // Jump facing right
-        this.load.spritesheet(
-            'jumpFR',
-            'images/JumpFacingRight.png',
-            {frameWidth: 23, frameHeight: 33}
-        );
-        // Jump facing left
-        this.load.spritesheet(
-            'jumpFL',
-            'images/JumpFacingLeft.png',
-            {frameWidth: 23, frameHeight: 33}
-        );
-        // Dash attack right
-        this.load.spritesheet(
-            'dashAttackR',
-            'images/DashAttackR.png',
-            {frameWidth: 61, frameHeight: 43}
-        );
+
+
+        this.load.atlas("player", "ImageAssets/player.png", "ImageAssets/player.json");
+
+        this.load.atlas("lightenemy", "ImageAssets/lightbandit.png","ImageAssets/lightbandit.json");
+       
         // Map objects
         this.load.image('tiles','assets/sheet.png');
+        this.load.image('watersheet','assets/WaterTileset.png');
+        this.load.spritesheet('gold','ImageAssets/gold.png', { frameWidth: 16, frameHeight: 16 });
         this.load.tilemapTiledJSON('grassmap','assets/world.json');
+
+
+        this.load.audio('theme', [
+            'assets/audio/forest.ogg',
+            'assets/audio/forest.mp3'
+        ]);
+
+        this.load.audioSprite('sfx', 'assets/audio/fx1.json', [
+            'assets/audio/Soundtrack1.ogg',
+            'assets/audio/Soundtrack1.wav'
+        ]);
+
+        this.sound;
+        this.golds;
+        this.enemies;
     }
     
     create() {
+        this.score = 0;
+        this.scoreText;
+        this.scoreText = this.add.text(200, 20, 'Score: 0', { fontSize: '18px', fill: '#000' }).setScrollFactor(0).setDepth(100);
+        this.golds = this.physics.add.staticGroup();
+        this.enemies = this.physics.add.group({
+            runChildUpdate: true
+        });
+        //Creating star rotate animation
+        this.anims.create({
+            key: 'goldRotate',
+            frames: this.anims.generateFrameNames('gold'),
+            frameRate: 8,
+            repeat: -1
+        });
+        this.sound.playAudioSprite('sfx','upper');
         
         ground = this.physics.add.staticGroup();
         const width = this.scale.width;
@@ -96,148 +92,190 @@ class SceneMain extends Phaser.Scene{
         sky.setScrollFactor(0);
 
         // Mountain background
-        // createAlligned(this, 3, 'level2', 0.25);
+        createAlligned(this, 3, 'level2', 0.25);
 
         // Forest background
-        // createAlligned(this,6, 'level3', 0.5);
+        createAlligned(this,6, 'level3', 0.5);
 
-        // Ground background
-        // createAlligned(this, 9, 'level4', 0.75);
-        // ground.setCollisionByProperty({ collides: true });
-        // ground.setOrigin(0,1);
-        // ground.setScale(0.67,0.7);
 
         // Map objects from Tiled.
-        var map = this.make.tilemap({key:'grassmap'});
+        const map = this.make.tilemap({key:'grassmap'});
         var tiles = map.addTilesetImage('grassworld','tiles');
-        var layer = map.createLayer('ground', tiles);
+        var watertiles = map.addTilesetImage('WaterTileset', 'watersheet');
+        var tilesets = [tiles,watertiles];
+        var layer = map.createLayer('ground',tilesets);
         layer.setCollisionByProperty({ collides: true });
         this.physics.world.setBounds(0, 0, layer.width, layer.height);
-        this.cameras.main.setBounds(0, 0, width*10, height);
+        this.cameras.main.setBounds(0, 0, layer.width, height);
 
-        // Creating player sprites
-        player = this.physics.add.sprite(100, 40, 'idle');
-        player.setScale(scaleValue);
-        r3 = this.add.rectangle(player.x,player.y, player.width*scaleValue, player.height*scaleValue);
-        r3.setStrokeStyle(2, 0x1a65ac);
-        player.setBounce(0.1);
-        this.physics.add.collider(player, layer);
-        player.setCollideWorldBounds(true);
+        ///////////////////////////////////////////////////
+        //Creating a new player
+        this.player = new Player(this, 100, 604, 'player', 100);
+        this.player.setScale(scaleValue);
+        this.player.body.setCollideWorldBounds(true);
+        this.physics.add.collider(this.player, layer);
+        this.player.setDepth(100);
+        // Set camera to follow player
+        cam = this.cameras.main.startFollow(this.player);
 
         // Leaves
         createAlligned(this, 12, 'level5', 1);
         
-
-        //Creating Stand facing right animation
-        this.anims.create({
-            key: 'stand',
-            frames: this.anims.generateFrameNumbers('idle', {start: 0, end: 4}),
-            frameRate: 7,
-            repeat: -1
-        });
-        //Creating Stand facing right animation
-        this.anims.create({
-            key: 'standL',
-            frames: this.anims.generateFrameNumbers('idleL', {start: 0, end: 4}),
-            frameRate: 7,
-            repeat: -1
-        });
-        // Creating running right animation
-        this.anims.create({
-            key: 'moveRight',
-            frames: this.anims.generateFrameNumbers('runningRight', {start: 0, end: 7}),
-            frameRate: 12,
-            repeat: -1
-        });
-        // Creating  running left animation
-        this.anims.create({
-            key: 'moveLeft',
-            frames: this.anims.generateFrameNumbers('runningLeft', {start: 0, end: 7}),
-            frameRate: 12,
-            repeat: -1
-        });
-        // Creating jumping fr animation
-        this.anims.create({
-            key: 'jumpfr',
-            frames: this.anims.generateFrameNumbers('jumpFR', {start: 0 , end: 2}),
-            frameRate: 3,
-            repeat: -1
-        });
-        // Creating jumping fl animation
-        this.anims.create({
-            key: 'jumpfl',
-            frames: this.anims.generateFrameNumbers('jumpFL', {start: 0 , end: 2}),
-            frameRate: 3,
-            repeat: -1
-        });
-        // Creating dash attack right
-        this.anims.create({
-            key: 'dashAR',
-            frames: this.anims.generateFrameNumbers('dashAttackR', {start: 0, end: 9},),
-            frameRate: 15,
-            repeat: -1
-        });
-
-        // Set camera to follow player
-        cam = this.cameras.main.startFollow(player);
-        // cam = this.cameras.main;
-
-        // Play initial player animation
-        player.anims.play('stand',true);
         
 
-        // initialize keyboard controls
-        this.cursors = this.input.keyboard.createCursorKeys();
-        keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        
+
+        const objectsLayer = map.getObjectLayer('enemyLocations');
+        objectsLayer.objects.forEach(objData => {
+            const {x = 0, y = 0, name, width = 0, height = 0} = objData
+
+            switch (name) {
+                case 'startPos':
+                    const e = new LightEnemy(this, x, y, 'lightenemy', 10);
+                    e.body.setSize(this.width,this.height,true);
+                    e.setScale(scaleValue);
+                    e.body.setCollideWorldBounds(true);
+                    this.physics.add.collider(e, layer);
+                    // this.enemies.add(e);
+                    // this.physics.add.collider(this.enemies,layer);
+                    // console.log(this.enemies);
+                    break;
+                case 'gold':
+                    const star = this.add.sprite(x, y, 'gold')
+                    star.anims.play('goldRotate',true);
+                    this.golds.add(star);
+                    break;
+                case 'invisibleWalls':
+                    var rect = this.add.rectangle(x, y, width, height, 0x9966ff);
+                    this.physics.add.existing(rect);
+                    rect.body.allowGravity = false;
+                    rect.body.immovable = true;
+                    this.physics.add.collider(this.player,rect);
+                    this.physics.add.overlap(this.player, rect, ()=>{
+                        console.log("Overlap!!!");
+                    }, null, this);
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+
+        this.physics.add.overlap(this.player, this.golds, this.collectStar, null, this);
+        
+
+        
+
+        ///////////////////////////////////////////////////
+        //Creating a new light enemy
+        // this.enemy = new LightEnemy(this, 300, 604, 'lightenemy', 10);
+        // this.enemy.body.setSize(this.width,this.height,true);
+        // this.enemy.setScale(scaleValue);
+        // this.enemy.body.setCollideWorldBounds(true);
+        // this.physics.add.collider(this.enemy, layer);
+
+        //Adding enemies
+        // this.enemies = this.add.group();
+        // for (let i = 0; i < 8; i++) {
+        //     const e = new LightEnemy(this, 300 + 1000 * i, 604, 'lightenemy', 10);
+        //     e.body.setSize(this.width,this.height,true);
+        //     e.setScale(scaleValue);
+        //     e.body.setCollideWorldBounds(true);
+        //     this.enemies.add(e);
+        // }
+        // this.physics.add.collider(this.enemies, layer);
+
+        ////////////////////////////////////////////////////////
+        //Collision
+        // this.physics.add.overlap(this.player, this.enemy, this.handlePlayerEnemyCollision, null, this);
+        // this.physics.add.overlap(this.player, this.enemies, this.handlePlayerEnemyCollision, null, this);
+
+        ///////////////////////////////////////////////////////
+        //Health Bar
+        this.healthBar = new HealthBar(this, 20, 20, 100);
+
     }
+
+    collectStar (player, gold)
+    {
+        // gold.disableBody(true, true);
+        gold.visible = false;
+        gold.body.enable = false;
+
+        this.score += 10;
+        this.scoreText.setText('Score: ' + this.score);
+    }
+    
+    handlePlayerEnemyCollision(p,e){
+        let sprite = this.player;
+        let sound = this.sound;
+        let currentAnim = this.player.anims.currentAnim;
+        let currentFrame = this.player.anims.currentFrame;
+        var frameCount = sprite.anims.getTotalFrames();
+            
+            this.player.on(Phaser.Animations.Events.ANIMATION_COMPLETE, ()=>{
+                if (currentAnim.key == "attack" && sprite.inRange) {
+                    if (currentFrame.index == frameCount && this.player.attacked) {
+                        // sound.playAudioSprite('sfx','coin');
+                        this.player.attacked = false;
+                        // this.enemies.children.iterate((child) => {
+                        //     if (child.inRange) {
+                                
+                        //     }
+                        // });
+                        e.health -= 10;
+                        // this.healthBar.updateHealth(p.health);
+                        if (e.health <= 0 ) {
+                            // e.kill();
+                            this.cameras.main.shake(50, 0.02);
+                            // this.cameras.main.fade(2000, 0, 0, 0);
+                            // this.cameras.main.once('camerafadeoutcomplete', () =>{
+                            //     this.scene.restart();
+                            // });
+                        }
+                    }
+                }
+                // e.kill();             
+            });
+            
+            //For changing tint effect
+            // p.setTint(0xff0000);
+            // this.time.addEvent({
+            //     delay: 500,
+            //     callback: () =>{
+            //         p.clearTint();
+            //     },
+            //     callbackscope: this,
+            //     loop: false
+            // });
+            
+        // }
+        
+    }
+
     update(time,delta) {
-        const speed = 3;
+        this.player.update();
+        // if (!this.enemy.isDead) {
+        //     this.enemy.update();
+        // }
         
-        if (this.cursors.left.isDown)
-        {
-            facingRight = false;
-            player.setVelocityX(-300);
-            if(player.body.blocked.down){
-                player.anims.play('moveLeft', true);
-            }
-            
-        }
-         else if (this.cursors.right.isDown)
-        {
-            facingRight = true;
-            player.setVelocityX(300);
-            if(player.body.blocked.down){
-                player.anims.play('moveRight', true);
-            }
-        }
-        else if(player.body.blocked.down)
-        {
-            player.setVelocityX(0);
-            if(facingRight){
-                player.anims.play('stand',true);
-            }else{
-                player.anims.play('standL',true);
-            }
-        }
-
-        if (this.cursors.up.isDown && player.body.blocked.down)
-        {
-            player.setVelocityY(-375);
-            if(facingRight){
-                player.anims.play('jumpfr',true);
-            }else{
-                player.anims.play('jumpfl',true);
-            }
-            
-        }
-
-        if (keySpace.isDown)
-        {
-            player.anims.play('dashAR',true);
-        }
-        r3.x = player.x;
-        r3.y = player.y;
-        r3.width = player.width*scaleValue;
-        r3.height = player.height*scaleValue;
-    }
+        // this.enemies.children.iterate((child) => {
+        //     console.log('child is => ', child);
+        //     if (!child.isDead) {
+        //         child.update();
+        //         if (child.x < 310) {
+        //             // console.log("enemy position is "+child.x);
+        //         }
+        //         if (child.x - this.player.x  <= 120 || this.player.x - child.x >= 120) {
+        //             // console.log("i am in range checker");
+        //             this.player.inRange = true;
+        //             child.inRange = true;
+        //             console.log(child.inRange);
+        //         }
+                
+        //     }
+        // });
+        // console.log("inRange is "+this.player.inRange);
+    }//End of update
+     
 }
