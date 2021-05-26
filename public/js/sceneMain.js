@@ -1,6 +1,7 @@
 // const e = require("express");
-
+// var enemiesDestroyed = 0;
 var cursors,ground,controls, cam;
+var moveValue = 400;
 var doingAction = false;
 const scaleValue = 3;
 var standingHeight = 0;
@@ -46,7 +47,10 @@ class SceneMain extends Phaser.Scene{
         // Map objects
         this.load.image('tiles','assets/sheet.png');
         this.load.image('watersheet','assets/WaterTileset.png');
+        this.load.spritesheet('waterfallsheet','assets/WaterTileset.png', { frameWidth: 32, frameHeight: 32 })
         this.load.spritesheet('gold','ImageAssets/gold.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('shield','ImageAssets/shield_gem.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('powerup','ImageAssets/powerup_gem.png', { frameWidth: 16, frameHeight: 16 });
         this.load.tilemapTiledJSON('grassmap','assets/world.json');
 
 
@@ -60,20 +64,23 @@ class SceneMain extends Phaser.Scene{
             'assets/audio/Soundtrack1.wav'
         ]);
 
-        this.sound;
-        this.golds;
-        this.enemies;
+        this.load.audioSprite('sfx2', 'assets/audio/fx2.json', [
+            'assets/audio/Soundtrack2.mp3',
+            'assets/audio/Soundtrack2.wav'
+        ]);
     }
     
     create() {
-        this.score = 0;
-        this.scoreText;
-        this.scoreText = this.add.text(200, 20, 'Score: 0', { fontSize: '18px', fill: '#000' }).setScrollFactor(0).setDepth(100);
+        this.music = this.sound.addAudioSprite('sfx');
+        this.music2 = this.sound.addAudioSprite('sfx2');
         this.golds = this.physics.add.staticGroup();
+        this.shields = this.physics.add.staticGroup();
+        this.powerups = this.physics.add.staticGroup();
         this.enemies = this.physics.add.group({
             collideWorldBounds: true,
             runChildUpdate: true
         });
+        this.water = this.physics.add.staticGroup();
         //Creating star rotate animation
         this.anims.create({
             key: 'goldRotate',
@@ -81,7 +88,37 @@ class SceneMain extends Phaser.Scene{
             frameRate: 8,
             repeat: -1
         });
-        this.sound.playAudioSprite('sfx','upper');
+
+        this.anims.create({
+            key: 'powerupRotate',
+            frames: this.anims.generateFrameNames('powerup'),
+            frameRate: 8,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'shieldRotate',
+            frames: this.anims.generateFrameNames('shield'),
+            frameRate: 8,
+            repeat: -1
+        });
+
+        this.anims.create({
+        key: 'waterfall',
+        frames: this.anims.generateFrameNumbers('waterfallsheet',{start: 2, end: 4}) ,
+        frameRate: 8,
+        repeat: -1   
+        });
+
+        this.anims.create({
+            key: 'portal',
+            frames: this.anims.generateFrameNumbers('waterfallsheet',{start: 156, end: 157}) ,
+            frameRate: 8,
+            repeat: -1   
+            });
+        // this.music = this.sound.playAudioSprite('sfx','upper');
+        this.music.play('upper');
+        this.music.setVolume(0.05)
         
         ground = this.physics.add.staticGroup();
         const width = this.scale.width;
@@ -98,6 +135,9 @@ class SceneMain extends Phaser.Scene{
         // Forest background
         createAlligned(this,6, 'level3', 0.5);
 
+        // Leaves
+        createAlligned(this, 12, 'level5', 1);
+
 
         // Map objects from Tiled.
         const map = this.make.tilemap({key:'grassmap'});
@@ -107,7 +147,8 @@ class SceneMain extends Phaser.Scene{
         var layer = map.createLayer('ground',tilesets);
         layer.setCollisionByProperty({ collides: true });
         this.physics.world.setBounds(0, 0, layer.width, layer.height);
-        this.cameras.main.setBounds(0, 0, layer.width, height);
+        this.cameras.main.fadeIn(5000);
+        this.cameras.main.setBounds(0, -(window.innerHeight - layer.height), layer.width, height);
 
         ///////////////////////////////////////////////////
         //Creating a new player
@@ -116,15 +157,11 @@ class SceneMain extends Phaser.Scene{
         this.player.body.setCollideWorldBounds(true);
         this.physics.add.collider(this.player, layer);
         this.player.setDepth(100);
+        
+
         // Set camera to follow player
         cam = this.cameras.main.startFollow(this.player);
 
-        // Leaves
-        createAlligned(this, 12, 'level5', 1);
-        
-        
-
-        
 
         const objectsLayer = map.getObjectLayer('enemyLocations');
         objectsLayer.objects.forEach(objData => {
@@ -132,11 +169,9 @@ class SceneMain extends Phaser.Scene{
 
             switch (name) {
                 case 'startPos':
-                    const e = new LightEnemy(this, x, y, 'lightenemy', 10);
+                    const e = new LightEnemy(this, x, y, 'lightenemy', 25);
                     e.body.setSize(this.width,this.height,true);
                     e.setScale(scaleValue);
-                    // e.body.setCollideWorldBounds(true);
-                    // this.physics.add.collider(e, layer);
                     this.enemies.add(e);
                     this.physics.add.collider(this.enemies,layer);
                     break;
@@ -151,143 +186,189 @@ class SceneMain extends Phaser.Scene{
                     rect.body.allowGravity = false;
                     rect.body.immovable = true;
                     this.physics.add.collider(this.enemies,rect);
-                    this.physics.add.overlap(this.player, rect, ()=>{
-                        console.log("Overlap!!!");
-                    }, null, this);
                     break;
-            
+                case 'powerup':
+                    const powerup = this.add.sprite(x, y,'powerup');
+                    powerup.setScale(2);
+                    powerup.anims.play('powerupRotate', true);
+                    this.powerups.add(powerup);
+                    break;
+                case 'shield':
+                    const shield = this.add.sprite(x, y, 'shield');
+                    shield.setScale(2);
+                    shield.anims.play('shieldRotate', true);
+                    this.shields.add(shield);
+                    break;
+                case 'water':
+                    const water = this.add.sprite(x, y, 'watersheet');
+                    water.setDepth(200);
+                    water.anims.play('waterfall', true);
+                    this.water.add(water);
+                    break;
+                case 'endPos':
+                    this.endPoint = this.add.sprite(x, y, 'watersheet').setScale(3);
+                    this.physics.add.existing(this.endPoint);
+                    this.endPoint.body.allowGravity = false;
+                    this.endPoint.body.immovable = true;
+                    this.endPoint.angle = 90
+                    this.endPoint.anims.play('portal', true);
+                    this.physics.add.overlap(this.player,this.endPoint, this.endGameRegion, null, this);
                 default:
                     break;
             }
         })
         this.enemies.setVelocityX(100);
-        // console.log(this.enemies.getVelocityX);
-        // this.enemies.setCollideWorldBounds(true);
 
+
+        this.physics.add.overlap(this.player, this.shields, this.useShield, null, this);
+        this.physics.add.overlap(this.player, this.powerups, this.usePowerUp, null, this);
         this.physics.add.overlap(this.player, this.golds, this.collectStar, null, this);
-        
-
-        
-
-        ///////////////////////////////////////////////////
-        //Creating a new light enemy
-        // this.enemy = new LightEnemy(this, 300, 604, 'lightenemy', 10);
-        // this.enemy.body.setSize(this.width,this.height,true);
-        // this.enemy.setScale(scaleValue);
-        // this.enemy.body.setCollideWorldBounds(true);
-        // this.physics.add.collider(this.enemy, layer);
-
-        //Adding enemies
-        // this.enemies = this.add.group();
-        // for (let i = 0; i < 8; i++) {
-        //     const e = new LightEnemy(this, 300 + 1000 * i, 604, 'lightenemy', 10);
-        //     e.body.setSize(this.width,this.height,true);
-        //     e.setScale(scaleValue);
-        //     e.body.setCollideWorldBounds(true);
-        //     this.enemies.add(e);
-        // }
-        // this.physics.add.collider(this.enemies, layer);
-
+   
         ////////////////////////////////////////////////////////
         //Collision
         this.physics.add.overlap(this.player, this.enemies, this.handlePlayerEnemyCollision, null, this);
+        this.physics.add.overlap(this.player, this.water, this.handlePlayerWaterOverlap, null, this);
 
         ///////////////////////////////////////////////////////
         //Health Bar
-        this.healthBar = new HealthBar(this, 20, 20, 100);
+        this.healthBar = new HealthBar(this, 20, 20, this.player.health, this.player.sheild, this.player.rage);
 
+    }
+
+    endGameRegion(){
+        console.log('Overlap');
+        if (this.player.body.blocked.down) {
+            console.log("Number of enemies destroyed is "+enemiesDestroyed);
+            this.scene.start('EndGameScene',{state: "Level complete",au: this.healthBar.score, ekia: enemiesDestroyed});
+        }
     }
 
     collectStar (player, gold)
     {
-        // gold.disableBody(true, true);
+        this.music.play('coin');
+        this.music.setVolume(0.3)
         gold.visible = false;
         gold.body.enable = false;
-
-        this.score += 10;
-        this.scoreText.setText('Score: ' + this.score);
+        this.healthBar.score += 10;
     }
 
-    myfunction(e){
-        console.log("timer has started");
-        // console.log(e);
-        this.enemies.add(e);
-
-        console.log(this.enemies);
+    useShield(player,shield){
+        this.music.play('Rise1');
+        this.music.setVolume(0.3);
+        shield.visible = false;
+        shield.body.enable = false;
+        if (player.shield <= 50) {
+            player.shield += 50;
+        }else{
+            player.shield = 100;
+        }
     }
-    
+
+    usePowerUp(player, powerup){
+        this.music.play('Rise1');
+        this.music.setVolume(0.3);
+        powerup.visible = false;
+        powerup.body.enable = false;
+        if (player.rage <= 50) {
+            player.rage += 50;
+        } else {
+            player.rage = 100;
+        }
+    }
+
+    handlePlayerWaterOverlap(p,e){
+        p.setTint(0xff0000);
+        // setInterval(this.drown(p), 5000)
+        this.time.addEvent({
+            delay: 3000,
+            callback: () =>{
+                p.clearTint();
+                p.health -= 0.009;
+            },
+            callbackscope: this,
+            loop: false
+        });
+        // console.log(p.health);
+    }
+
     handlePlayerEnemyCollision(p,e){
-        let sprite = this.player;
-        let sound = this.sound;
-        let currentAnim = this.player.anims.currentAnim;
-        let currentFrame = this.player.anims.currentFrame;
+        let sprite = p;
+        let enemies = e;
+        let sound = this.music2;
+        let currentAnim = sprite.anims.currentAnim;
+        let currentFrame = sprite.anims.currentFrame;
         var frameCount = sprite.anims.getTotalFrames();
-            
-            this.player.on(Phaser.Animations.Events.ANIMATION_COMPLETE, ()=>{
-                if (currentAnim.key == "attack" && sprite.inRange) {
-                    if (currentFrame.index == frameCount && this.player.attacked) {
-                        // sound.playAudioSprite('sfx','coin');
-                        this.player.attacked = false;
-                        this.enemies.children.iterate((child) => {
-                            console.log("i am here");
-                            console.log(child.health);
-                            if (child.inRange) {
-                                child.health -= 10;
-                            }
-                        });
-                        // e.health -= 10;
-                        // this.healthBar.updateHealth(p.health);
-                        // if (this.enemies.health <= 0 ) {
-                            // e.kill();
-                            // this.cameras.main.shake(50, 0.02);
-                            // this.cameras.main.fade(2000, 0, 0, 0);
-                            // this.cameras.main.once('camerafadeoutcomplete', () =>{
-                            //     this.scene.restart();
-                            // });
-                        // }
-                    }
+        sprite.on(Phaser.Animations.Events.ANIMATION_COMPLETE, ()=>{
+            if ((currentAnim.key == "attack" || currentAnim.key == "dashA") && sprite.inRange) {
+                if (currentFrame.index == frameCount && sprite.attacked) {
+                    sprite.attacked = false;
+                    this.enemies.children.iterate((child) => {
+                        if (child.inRange) {
+                            sound.play('attack1');
+                            child.health -= 10;
+                        }
+                    });
                 }
-                // e.kill();             
-            });
-            
-            //For changing tint effect
-            // p.setTint(0xff0000);
-            // this.time.addEvent({
-            //     delay: 500,
-            //     callback: () =>{
-            //         p.clearTint();
-            //     },
-            //     callbackscope: this,
-            //     loop: false
-            // });
-            
-        // }
-        
+            }            
+        });
+        this.enemies.children.iterate((child) =>{
+                if (child.anims.currentAnim.key == 'lightEnemy_attack') {
+                    child.causedDamage = true
+                    child.on(Phaser.Animations.Events.ANIMATION_COMPLETE, ()=>{
+                        if (child.inRange && child.causedDamage) {
+                            sound.play('attack1');
+                            child.causedDamage = false
+                            // console.log('player shield is '+ this.player.shield);
+                            if (this.player.shield <= 0) {
+                                sprite.health -= child.damage;
+                                // console.log('health is ',sprite.health);
+                            }else{
+                                sprite.shield -= 50;
+                                // console.log('shield is', sprite.shield);
+                            }
+                        }
+                    })
+                }
+        })
+    }
+
+    drown(p){
+        p.health -= 0.5;
     }
 
     update(time,delta) {
-        this.player.update();
-        // if (!this.enemy.isDead) {
-        //     this.enemy.update();
-        // }
-        
-        this.enemies.children.iterate((child) => {
-            // console.log('child is => ', child);
-            if (!child.isDead) {
-                // child.update();
-                // if (child.x < 310) {
-                //     console.log("enemy position is "+child.x);
-                // }
-                if (child.x - this.player.x  <= 120 || this.player.x - child.x >= 120) {
-                    // console.log("i am in range checker");
-                    this.player.inRange = true;
-                    child.inRange = true;
-                    // console.log(child.inRange);
-                }
-                
+        if (!this.player.isDead) {
+            this.healthBar.updateHealth(this.player.health, this.player.shield,this.player.rage);
+            if (this.player.health <= 0) {
+                this.player.playdeath(this.healthBar);
+            }else {
+                this.player.update();
             }
+        }
+        this.enemies.children.iterate((child) => {
+            if (this.player.health > 0) {
+                if (!child.isDead) {
+                    if (this.player.x > child.x ) {
+                        child.aheadOfPlayer = false;
+                    }else{
+                        child.aheadOfPlayer = true;
+                    }
+                    if (Math.abs(child.x - this.player.x)  <= 80 ) {
+                        child.contactedPlayer = true;
+                        this.player.inRange = true;
+                        child.inRange = true;
+                    }else{
+                        if (child.contactedPlayer && Math.abs(child.x - this.player.x) > 200) {
+                            child.contactedPlayer = false;
+                        }
+                        child.inRange = false;
+                    }
+                }
+            }else{
+                child.attacking = false
+            }
+            
         });
-        // console.log("inRange is "+this.player.inRange);
     }//End of update
      
 }

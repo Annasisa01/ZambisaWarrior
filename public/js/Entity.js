@@ -1,20 +1,29 @@
 class Entity extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, textureKey, type){
         super(scene,x,y,textureKey,type);
-
-        this.scence = scene;
+        this.scene = scene;
         this.textureKey = textureKey;
-        this.scence.add.existing(this);
-        this.scence.physics.world.enableBody(this,0);
+        this.scene.add.existing(this);
+        this.scene.physics.world.enableBody(this,0);
         this.type = type;
         this.isDead = false;
     }
 
-    kill(){
+    kill(p){
         if(!this.isDead){
             this.isDead = true;
-            this.destroy();
-            console.log("entity dead");
+            switch (this.type) {
+                case 'Player':
+                    console.log();
+                    this.scene.scene.start('EndGameScene',{state: "Player died",au: 0, ekia: 0});
+                    this.destroy()
+                    break;
+                case 'LightEnemy':
+                    this.destroy()
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
