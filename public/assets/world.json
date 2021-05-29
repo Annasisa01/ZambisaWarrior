@@ -25,7 +25,7 @@
         {
          "draworder":"topdown",
          "id":2,
-         "name":"enemyLocations",
+         "name":"objectLocations",
          "objects":[
                 {
                  "height":28.4024,
@@ -1467,12 +1467,12 @@
                  "height":62,
                  "id":140,
                  "name":"endPos",
-                 "rotation":270.86887821199,
+                 "rotation":270.869,
                  "type":"",
                  "visible":true,
                  "width":62,
-                 "x":6679.28246133767,
-                 "y":615.017968038951
+                 "x":6679.28,
+                 "y":615.018
                 }],
          "opacity":1,
          "type":"objectgroup",

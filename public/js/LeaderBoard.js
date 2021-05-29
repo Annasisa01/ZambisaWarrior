@@ -25,6 +25,13 @@ class LeaderBoard extends Phaser.Scene{
 
         this.add.rectangle(window.innerWidth/4,window.innerHeight/3 + 30,window.innerWidth/2,300,0xf7e094).setOrigin(0);
 
+        this.add.text(this.leaderboard.x, this.leaderboard.y + 50,"Players must complete all levels to join the leaderboard",{
+            fontFamily: 'Papyrus',
+            fontSize: '25px',
+            color: '#000000',
+            wordWrap: { width: 700 }
+        }).setOrigin(0.5);
+
         this.menuButton = new Button(this,window.innerWidth/2 -55, 500 , "Home", 10);
         this.menuButton.graphics.fillStyle(0x6fb83b,1)
         this.menuButton.graphics.fillRoundedRect(this.menuButton.x, this.menuButton.y, 150, 40, this.menuButton.radius);

@@ -82,7 +82,7 @@ class Player extends Entity{
             attacking = true;
         })
 
-        this.dashCombo = scene.input.keyboard.createCombo([this.keys.right,this.keys.d], {
+        this.dashCombo = scene.input.keyboard.createCombo([this.keys.right || this.keys.left,this.keys.d], {
             resetOnWrongKey: true,
             // maxKeyDelay: 0,
             resetOnMatch: true

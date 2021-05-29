@@ -3,11 +3,17 @@ class HomeScene extends Phaser.Scene{
         super('HomeScene');
     }
     preload(){
+        this.load.plugin('rexinputtextplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexinputtextplugin.min.js', true);
         this.load.audio('theme', [
             'assets/audio/forest.ogg',
             'assets/audio/forest.mp3'
         ]);
         this.load.image('background','ImageAssets/home_jungle.jpg');
+
+        this.load.atlas("player", "ImageAssets/player.png", "ImageAssets/player.json");
+        this.load.atlas("lightenemy", "ImageAssets/lightbandit.png","ImageAssets/lightbandit.json");
+        this.load.atlas("darkenemy", "ImageAssets/darkbandit.png", "ImageAssets/darkbandit.json");
+        this.load.atlas("eyemonster", "ImageAssets/eyemonster.png","ImageAssets/eyemonster.json");
     }
 
     create(){
@@ -64,6 +70,8 @@ class HomeScene extends Phaser.Scene{
         this.optionBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Options", 10);
         this.spacingY += space;
         this.exitBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Exit", 10);
+
+        
     }
     update(){
         

@@ -43,6 +43,8 @@ class SceneMain extends Phaser.Scene{
         this.load.atlas("player", "ImageAssets/player.png", "ImageAssets/player.json");
 
         this.load.atlas("lightenemy", "ImageAssets/lightbandit.png","ImageAssets/lightbandit.json");
+
+        this.load.atlas("darkenemy", "ImageAssets/darkbandit.png", "ImageAssets/darkbandit.json")
        
         // Map objects
         this.load.image('tiles','assets/sheet.png');
@@ -71,6 +73,7 @@ class SceneMain extends Phaser.Scene{
     }
     
     create() {
+        this.game.config.globals.level = 1
         this.music = this.sound.addAudioSprite('sfx');
         this.music2 = this.sound.addAudioSprite('sfx2');
         this.golds = this.physics.add.staticGroup();
@@ -126,7 +129,9 @@ class SceneMain extends Phaser.Scene{
 
         // Sky background
         var sky = this.add.image(window.innerWidth/2,window.innerHeight/2,'level1');
-        sky.setScale(0.67,0.7);
+        const scaleX = window.innerWidth / sky.width;
+        const scaleY = window.innerHeight / sky.height;
+        sky.setScale(scaleX,scaleY);
         sky.setScrollFactor(0);
 
         // Mountain background
@@ -163,13 +168,13 @@ class SceneMain extends Phaser.Scene{
         cam = this.cameras.main.startFollow(this.player);
 
 
-        const objectsLayer = map.getObjectLayer('enemyLocations');
+        const objectsLayer = map.getObjectLayer('objectLocations');
         objectsLayer.objects.forEach(objData => {
             const {x = 0, y = 0, name, width = 0, height = 0} = objData
 
             switch (name) {
                 case 'startPos':
-                    const e = new LightEnemy(this, x, y, 'lightenemy', 25);
+                    const e = new LightEnemy(this, x, y, 'lightenemy',"LightEnemy", 25);
                     e.body.setSize(this.width,this.height,true);
                     e.setScale(scaleValue);
                     this.enemies.add(e);
@@ -238,8 +243,8 @@ class SceneMain extends Phaser.Scene{
     endGameRegion(){
         console.log('Overlap');
         if (this.player.body.blocked.down) {
-            console.log("Number of enemies destroyed is "+enemiesDestroyed);
-            this.scene.start('EndGameScene',{state: "Level complete",au: this.healthBar.score, ekia: enemiesDestroyed});
+            console.log("Number of enemies destroyed is "+Entity.enemiesDestroyed);
+            this.scene.start('EndGameScene',{state: "Level complete",au: this.healthBar.score, ekia: Entity.enemiesDestroyed});
         }
     }
 

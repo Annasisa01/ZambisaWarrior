@@ -1,8 +1,10 @@
 window.onload = function()
 {
-
     const musicManager = new Music();
     var level = parseInt(localStorage.getItem('level')) || 1;
+    if (level == 1) {
+        localStorage.setItem('level', level)
+    }
     var totalGold = parseInt(localStorage.getItem('totalGold')) || 0;
     var totalXp = parseInt(localStorage.getItem('totalXp')) || 0;
     console.log("Initial level is "+level);
@@ -23,10 +25,10 @@ window.onload = function()
             default: 'arcade',
             arcade: {
                 gravity: { y: 390 },
-                debug: true
+                debug: false
             }
         },
-        scene: [HomeScene, LevelOneDisp,OptionScene, InstructionScene, LeaderBoard, SceneMain,LevelTwo, EndGameScene]
+        scene: [ HomeScene, LevelOneDisp, OptionScene, InstructionScene, LeaderBoard, SceneMain, LevelTwo, EndGameScene]
     };
 
     game = new Phaser.Game(config);
