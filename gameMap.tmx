@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="210" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="142">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="210" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="166">
  <editorsettings>
   <export target="public/assets/world.json" format="json"/>
  </editorsettings>
@@ -283,13 +283,13 @@
     <property name="collides" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="24" name="invisibleWalls" x="4891.26" y="616" width="5" height="95.0353">
+  <object id="24" name="invisibleWalls" x="4895.74" y="613.011" width="5" height="95.0353">
    <properties>
     <property name="collides" type="bool" value="true"/>
    </properties>
   </object>
   <object id="25" name="startPos" x="4119.22" y="604" width="29.1913" height="28.4024"/>
-  <object id="26" name="startPos" x="5319.93" y="604" width="29.1913" height="28.4024"/>
+  <object id="26" name="startPos" x="4960.6" y="607.218" width="29.1913" height="28.4024"/>
   <object id="29" name="gold" gid="206" x="1065.29" y="441.502" width="16" height="16"/>
   <object id="30" name="gold" gid="206" x="1097.26" y="441.502" width="16" height="16"/>
   <object id="31" name="gold" gid="206" x="1129.23" y="441.502" width="16" height="16"/>
@@ -305,7 +305,6 @@
   <object id="41" name="gold" gid="206" x="1225.46" y="632.368" width="16" height="16"/>
   <object id="42" name="gold" gid="206" x="1256.04" y="632.368" width="16" height="16"/>
   <object id="43" name="startPos" x="5024.98" y="315" width="29.1913" height="28.4024"/>
-  <object id="44" name="startPos" x="5504.14" y="315" width="29.1913" height="28.4024"/>
   <object id="45" name="gold" gid="206" x="1768.68" y="440.878" width="16" height="16"/>
   <object id="46" name="gold" gid="206" x="1800.65" y="440.878" width="16" height="16"/>
   <object id="47" name="gold" gid="206" x="1832.62" y="440.878" width="16" height="16"/>
@@ -357,20 +356,20 @@
   <object id="93" name="gold" gid="206" x="5520.11" y="632" width="16" height="16"/>
   <object id="94" name="powerup" gid="211" x="3337.33" y="632" width="16" height="16"/>
   <object id="95" name="shield" gid="215" x="3433.29" y="632" width="16" height="16"/>
-  <object id="97" name="water" gid="39" x="4691.29" y="691.375" width="32" height="32"/>
-  <object id="98" name="water" gid="39" x="4723.3" y="691.375" width="32" height="32"/>
-  <object id="99" name="water" gid="39" x="4755.3" y="691.375" width="32" height="32"/>
-  <object id="100" name="water" gid="39" x="4787.3" y="691.38" width="32" height="32"/>
-  <object id="101" name="water" gid="39" x="4819.3" y="691.375" width="32" height="32"/>
-  <object id="102" name="water" gid="39" x="4851.3" y="691.375" width="32" height="32"/>
-  <object id="103" name="water" gid="39" x="4883.3" y="691.375" width="32" height="32"/>
-  <object id="104" name="water" gid="39" x="4691.04" y="723.319" width="32" height="32"/>
-  <object id="105" name="water" gid="39" x="4723.04" y="723.319" width="32" height="32"/>
-  <object id="106" name="water" gid="39" x="4755.04" y="723.319" width="32" height="32"/>
-  <object id="107" name="water" gid="39" x="4787.04" y="723.324" width="32" height="32"/>
-  <object id="108" name="water" gid="39" x="4819.04" y="723.319" width="32" height="32"/>
-  <object id="109" name="water" gid="39" x="4851.04" y="723.319" width="32" height="32"/>
-  <object id="110" name="water" gid="39" x="4883.04" y="723.319" width="32" height="32"/>
+  <object id="97" name="water" gid="39" x="4686.29" y="691.375" width="32" height="32"/>
+  <object id="98" name="water" gid="39" x="4718.3" y="691.375" width="32" height="32"/>
+  <object id="99" name="water" gid="39" x="4750.3" y="691.375" width="32" height="32"/>
+  <object id="100" name="water" gid="39" x="4782.3" y="691.38" width="32" height="32"/>
+  <object id="101" name="water" gid="39" x="4814.3" y="691.375" width="32" height="32"/>
+  <object id="102" name="water" gid="39" x="4846.3" y="691.375" width="32" height="32"/>
+  <object id="103" name="water" gid="39" x="4878.3" y="691.375" width="32" height="32"/>
+  <object id="104" name="water" gid="39" x="4686.04" y="723.319" width="32" height="32"/>
+  <object id="105" name="water" gid="39" x="4718.04" y="723.319" width="32" height="32"/>
+  <object id="106" name="water" gid="39" x="4750.04" y="723.319" width="32" height="32"/>
+  <object id="107" name="water" gid="39" x="4782.04" y="723.324" width="32" height="32"/>
+  <object id="108" name="water" gid="39" x="4814.04" y="723.319" width="32" height="32"/>
+  <object id="109" name="water" gid="39" x="4846.04" y="723.319" width="32" height="32"/>
+  <object id="110" name="water" gid="39" x="4878.04" y="723.319" width="32" height="32"/>
   <object id="125" name="water" gid="39" x="1423.79" y="691.535" width="32" height="32"/>
   <object id="126" name="water" gid="39" x="1455.79" y="691.535" width="32" height="32"/>
   <object id="127" name="water" gid="39" x="1487.79" y="691.535" width="32" height="32"/>
@@ -386,5 +385,58 @@
   <object id="137" name="water" gid="39" x="1583.54" y="723.479" width="32" height="32"/>
   <object id="138" name="water" gid="39" x="1615.54" y="723.479" width="32" height="32"/>
   <object id="140" name="endPos" gid="193" x="6679.28" y="615.018" width="62" height="62" rotation="270.869"/>
+  <object id="144" name="invisibleWalls" x="889.22" y="320.41" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="145" name="invisibleWalls" x="608.216" y="318.912" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="146" name="startPos" x="735.856" y="320.719" width="31.4725" height="31.4725"/>
+  <object id="147" name="startPos" x="1152.74" y="414.672" width="31.4725" height="31.4725"/>
+  <object id="149" name="startPos" x="1856.29" y="416.268" width="31.4725" height="31.4725"/>
+  <object id="150" name="startPos" x="2400.39" y="415.587" width="31.4725" height="31.4725"/>
+  <object id="151" name="startPos" x="4384.18" y="315.455" width="31.4725" height="31.4725"/>
+  <object id="152" name="mushroomPos" x="3551.43" y="603.278" width="31.4725" height="31.4725"/>
+  <object id="154" name="startPos" x="5665.39" y="606.876" width="31.4725" height="31.4725"/>
+  <object id="155" name="startPos" x="5507.39" y="316.432" width="31.4725" height="31.4725"/>
+  <object id="158" name="invisibleWalls" x="3672.16" y="601.19" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="159" name="invisibleWalls" x="2272.25" y="414.407" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="160" name="invisibleWalls" x="2552.51" y="413.37" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="161" name="invisibleWalls" x="1728.7" y="416.928" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="162" name="invisibleWalls" x="2007.31" y="415.024" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="163" name="invisibleWalls" x="1306.95" y="417.255" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="164" name="invisibleWalls" x="1025.82" y="415.697" width="5" height="95.0353">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

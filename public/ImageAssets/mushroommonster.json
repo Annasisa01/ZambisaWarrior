@@ -1,0 +1,204 @@
+{"frames": [
+
+{
+	"filename": "Mushroom_Attack_1.png",
+	"frame": {"x":0,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Attack_2.png",
+	"frame": {"x":67,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Attack_3.png",
+	"frame": {"x":134,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Attack_4.png",
+	"frame": {"x":201,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Attack_5.png",
+	"frame": {"x":268,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Attack_6.png",
+	"frame": {"x":335,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Attack_7.png",
+	"frame": {"x":402,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Attack_8.png",
+	"frame": {"x":469,"y":0,"w":67,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":48},
+	"sourceSize": {"w":67,"h":48}
+},
+{
+	"filename": "Mushroom_Death_1.png",
+	"frame": {"x":536,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Death_2.png",
+	"frame": {"x":576,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Death_3.png",
+	"frame": {"x":616,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Death_4.png",
+	"frame": {"x":656,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Idle_1.png",
+	"frame": {"x":696,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Idle_2.png",
+	"frame": {"x":736,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Idle_3.png",
+	"frame": {"x":776,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Idle_4.png",
+	"frame": {"x":816,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_1.png",
+	"frame": {"x":856,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_2.png",
+	"frame": {"x":896,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_3.png",
+	"frame": {"x":936,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_4.png",
+	"frame": {"x":976,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_5.png",
+	"frame": {"x":1016,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_6.png",
+	"frame": {"x":1056,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_7.png",
+	"frame": {"x":1096,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+},
+{
+	"filename": "Mushroom_Run_8.png",
+	"frame": {"x":1136,"y":0,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":48},
+	"sourceSize": {"w":40,"h":48}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "mushroommonster.png",
+	"format": "RGBA8888",
+	"size": {"w":1176,"h":48},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:708c1d177ae4353b45e3edaaeb040e6d:e0a4ffe74bf471bb15ab5adfa42467c6:f973b56ac83d7eabe21bafbd9cb76cd4$"
+}
+}

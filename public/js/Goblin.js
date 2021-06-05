@@ -1,6 +1,6 @@
-class EyeMonster extends Entity{
+class Goblin extends Entity{
     constructor(scene, x, y, textureKey, damage){
-        super(scene,x,y,textureKey,"EyeMonster");
+        super(scene,x,y,textureKey,"GoblinMonster");
 
         this.x = x;
         const anims = scene.anims;
@@ -11,11 +11,11 @@ class EyeMonster extends Entity{
         this.attacking = false;
         this.justDied = false;
         this.aheadOfPlayer = true;
-        this.health = 20;
+        this.health = 30;
         this.fightingRange = 100;
         this.contactedPlayer = false;
         this.attackTimer = 0;
-        this.speed = 30;
+        this.speed = 100;
         this.resource = 0;
         this.timer = 0;
 
@@ -23,10 +23,10 @@ class EyeMonster extends Entity{
         this.maxTimer = 300/this.scene.game.config.globals.level;
 
         anims.create({
-            key: 'eyemonster_attack',
+            key: 'goblin_attack',
             frames: anims.generateFrameNames(this.textureKey, 
                 {
-                    prefix: "EyeMonster_Attack_", 
+                    prefix: "Goblin_Attack_", 
                     start: 1, 
                     end: 8, 
                     zeroPad: 1, 
@@ -36,10 +36,24 @@ class EyeMonster extends Entity{
         });
 
         anims.create({
-            key: 'eyemonster_flight',
+            key: 'goblin_idle',
             frames: anims.generateFrameNames(this.textureKey, 
                 {
-                    prefix: "EyeMonster_Flight_", 
+                    prefix: "Goblin_Idle_", 
+                    start: 1, 
+                    end: 4, 
+                    zeroPad: 1, 
+                    suffix: ".png"
+                }),
+            frameRate: 5,
+            repeat: -1
+        });
+
+        anims.create({
+            key: 'goblin_run',
+            frames: anims.generateFrameNames(this.textureKey, 
+                {
+                    prefix: "Goblin_Run_", 
                     start: 1, 
                     end: 8, 
                     zeroPad: 1, 
@@ -50,23 +64,10 @@ class EyeMonster extends Entity{
         });
 
         anims.create({
-            key: 'eyemonster_death',
+            key: 'goblin_death',
             frames: anims.generateFrameNames(this.textureKey, 
                 {
-                    prefix: "EyeMonster_Death_", 
-                    start: 1, 
-                    end: 4, 
-                    zeroPad: 1, 
-                    suffix: ".png"
-                }),
-            frameRate: 6
-        });
-
-        anims.create({
-            key: 'eyemonster_hit',
-            frames: anims.generateFrameNames(this.textureKey, 
-                {
-                    prefix: "EyeMonster_Hit_", 
+                    prefix: "Goblin_Death_", 
                     start: 1, 
                     end: 4, 
                     zeroPad: 1, 
@@ -75,18 +76,31 @@ class EyeMonster extends Entity{
             frameRate: 5
         });
 
-        this.anims.play('eyemonster_flight',true);
+        anims.create({
+            key: 'goblin_hit',
+            frames: anims.generateFrameNames(this.textureKey, 
+                {
+                    prefix: "Goblin_Hit_", 
+                    start: 1, 
+                    end: 4, 
+                    zeroPad: 1, 
+                    suffix: ".png"
+                }),
+            frameRate: 5
+        });
+
+        this.anims.play('goblin_run',true);
     }
 
     attack(){
-        var diffX = this.flipX ? -20 : 20
-        this.anims.play('eyemonster_attack', true);
-        this.x += diffX;
+        // var diffX = this.flipX ? -20 : 20
+        this.anims.play('goblin_attack', true);
+        // this.x += diffX;
         this.on('animationcomplete', ()=>{
             this.causedDamage = true
             this.attacking = false;
-            this.anims.play('eyemonster_flight',true);
-            this.x += -diffX;
+            this.anims.play('goblin_idle',true);
+            // this.x += -diffX;
         })
     }
 
@@ -101,8 +115,7 @@ class EyeMonster extends Entity{
         if (this.health <= 0) {
             this.contactedPlayer = false
             this.attacking = false;
-            this.y -=5
-            this.anims.play('eyemonster_death',true)
+            this.anims.play('goblin_death',true)
                 .on("animationcomplete", ()=>{
                     this.kill();
                 })
@@ -124,7 +137,7 @@ class EyeMonster extends Entity{
                 this.body.setVelocityX(0);
                 if (!this.attacking) {
                     console.log("not attack");
-                    this.anims.play('eyemonster_flight',true)
+                    this.anims.play('goblin_idle',true)
                     this.attacking = true
                 }else{
                     this.attackTimer += 1;
@@ -138,7 +151,7 @@ class EyeMonster extends Entity{
             }else{
                 this.attacking = false;
                 this.body.setVelocityX(this.flipX ? -100 : 100);
-                this.anims.play('eyemonster_flight',true);
+                this.anims.play('goblin_run',true);
                 
             }
         }

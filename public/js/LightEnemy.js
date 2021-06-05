@@ -11,8 +11,8 @@ class LightEnemy extends Entity{
         this.attacking = false;
         this.idle = false;
         this.aheadOfPlayer = true;
-        this.health = 30;
-        this.fightingRange = 120;
+        this.health = 40;
+        this.fightingRange = 75;
         this.contactedPlayer = false;
         this.attackTimer = 0;
 
@@ -145,13 +145,7 @@ class LightEnemy extends Entity{
             this.anims.play('darkbandit_run',true);
         }
 
-
-        
-
-
-
-        
-        this.speed = 100;
+        this.speed = 150;
         let dir = Math.floor(Math.random()*2)
         switch (dir) {
             case 0:
@@ -175,13 +169,14 @@ class LightEnemy extends Entity{
             this.anims.play('darkbandit_attack', true)
         }
         this.on('animationcomplete', ()=>{
+            this.causedDamage = true
             this.attacking = false;
         })
     }
 
     update(){
         // const {speed} = this;
-        this.attackTimer += 1;
+        
 
         const enemyBlocked = this.body.blocked;
         if (enemyBlocked.left) {
@@ -205,6 +200,7 @@ class LightEnemy extends Entity{
                     }
                     this.attacking = true
                 }else{
+                    this.attackTimer += 1;
                     if (this.attackTimer >= this.maxTimer) {
                         this.attack();
                         this.attackTimer = 0;
@@ -212,7 +208,7 @@ class LightEnemy extends Entity{
                 }
             }else{
                 this.attacking = false;
-                this.body.setVelocityX(this.flipX ? 100 : -100);
+                this.body.setVelocityX(this.flipX ? this.speed : -this.speed);
                 if (this.type == "LightEnemy") {
                     this.anims.play('lightEnemy_run',true);
                 }else{

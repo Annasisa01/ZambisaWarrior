@@ -1,4 +1,4 @@
-class HealthBar{
+class HUD{
     constructor(scene, x, y, health,shield, rage){
         // Setting the scene of this class to the current scene
         this.scene = scene;
@@ -88,7 +88,7 @@ class HealthBar{
         // Adding title text for the powerup
         this.scene.add.text(x+260, y+2, 'Rage', {fontFamily: 'Papyrus',fontSize: '18px', fill: '#000'}).setScrollFactor(0);
     }
-    updateHealth(health,shield,rage){
+    updateHUD(health,shield,rage){
         this.newGraphics.clear();
         this.newSheildGraphics.clear();
         this.newPowerupGraphics.clear();

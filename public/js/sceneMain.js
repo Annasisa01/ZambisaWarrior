@@ -1,27 +1,16 @@
-// const e = require("express");
-// var enemiesDestroyed = 0;
-var cursors,ground,controls, cam;
-var moveValue = 400;
-var doingAction = false;
+var controls, cam;
 const scaleValue = 3;
-var standingHeight = 0;
+
+// Global method used for creating the parallax background
 const createAlligned = (scene, count, texture, scrollFactor ) => {
     let x = 0;
-    var temp = scene.textures.get(texture);
-    var image = temp.getSourceImage();
     for (let i = 0; i < count; i++) {
-        if(texture == "level4"){
-            ground.create(x, scene.scale.height, texture).setScale(0.67,0.7).refreshBody().setScrollFactor(scrollFactor);
-            ground.setOrigin(0,1);
-            x += image.width *0.67;
-        }
-        else{
-            const m = scene.add.image(x, scene.scale.height, texture);
-            m.setOrigin(0,1);
-            m.setScale(0.67,0.7);
-            m.setScrollFactor(scrollFactor);
-            x += m.width*0.67;
-        }
+        // Create image from the texture that was passed as a variable
+        const m = scene.add.image(x, scene.scale.height, texture);
+        m.setOrigin(0,1);
+        m.setScale(0.67,0.7);
+        m.setScrollFactor(scrollFactor);
+        x += m.width*0.67;
     }
 }
 
@@ -32,59 +21,30 @@ class SceneMain extends Phaser.Scene{
     
     preload()
     {
-        // Loading parallax background
-        this.load.image('level4','assets/FORESTBACKGROUND/Layers/ground.png');
-        this.load.image('level2','assets/FORESTBACKGROUND/Layers/mountains.png');
-        this.load.image('level5','assets/FORESTBACKGROUND/Layers/plant.png');
-        this.load.image('level3','assets/FORESTBACKGROUND/Layers/plateau.png');
-        this.load.image('level1','assets/FORESTBACKGROUND/Layers/sky.png');
-
-
-        this.load.atlas("player", "ImageAssets/player.png", "ImageAssets/player.json");
-
-        this.load.atlas("lightenemy", "ImageAssets/lightbandit.png","ImageAssets/lightbandit.json");
-
-        this.load.atlas("darkenemy", "ImageAssets/darkbandit.png", "ImageAssets/darkbandit.json")
        
-        // Map objects
-        this.load.image('tiles','assets/sheet.png');
-        this.load.image('watersheet','assets/WaterTileset.png');
-        this.load.spritesheet('waterfallsheet','assets/WaterTileset.png', { frameWidth: 32, frameHeight: 32 })
-        this.load.spritesheet('gold','ImageAssets/gold.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('shield','ImageAssets/shield_gem.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('powerup','ImageAssets/powerup_gem.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.tilemapTiledJSON('grassmap','assets/world.json');
-
-
-        this.load.audio('theme', [
-            'assets/audio/forest.ogg',
-            'assets/audio/forest.mp3'
-        ]);
-
-        this.load.audioSprite('sfx', 'assets/audio/fx1.json', [
-            'assets/audio/Soundtrack1.ogg',
-            'assets/audio/Soundtrack1.wav'
-        ]);
-
-        this.load.audioSprite('sfx2', 'assets/audio/fx2.json', [
-            'assets/audio/Soundtrack2.mp3',
-            'assets/audio/Soundtrack2.wav'
-        ]);
     }
     
     create() {
-        this.game.config.globals.level = 1
+        // Setting the global variable level to current level: 1
+        this.game.config.globals.level = 1;
+
+        // initializing sounds for sfx to class variables
         this.music = this.sound.addAudioSprite('sfx');
         this.music2 = this.sound.addAudioSprite('sfx2');
+
+        // Creating static groups for diferrent game objects
         this.golds = this.physics.add.staticGroup();
         this.shields = this.physics.add.staticGroup();
         this.powerups = this.physics.add.staticGroup();
+        this.water = this.physics.add.staticGroup();
+
+        // Creating a group for all enemies
         this.enemies = this.physics.add.group({
             collideWorldBounds: true,
             runChildUpdate: true
         });
-        this.water = this.physics.add.staticGroup();
-        //Creating star rotate animation
+        
+        // Creating gold rotate animation
         this.anims.create({
             key: 'goldRotate',
             frames: this.anims.generateFrameNames('gold'),
@@ -92,6 +52,7 @@ class SceneMain extends Phaser.Scene{
             repeat: -1
         });
 
+        // Creating powerup rotate animation
         this.anims.create({
             key: 'powerupRotate',
             frames: this.anims.generateFrameNames('powerup'),
@@ -99,6 +60,7 @@ class SceneMain extends Phaser.Scene{
             repeat: -1
         });
 
+        // Creating shield rotate animation
         this.anims.create({
             key: 'shieldRotate',
             frames: this.anims.generateFrameNames('shield'),
@@ -106,6 +68,7 @@ class SceneMain extends Phaser.Scene{
             repeat: -1
         });
 
+        // Creating waterfall animation
         this.anims.create({
         key: 'waterfall',
         frames: this.anims.generateFrameNumbers('waterfallsheet',{start: 2, end: 4}) ,
@@ -113,17 +76,18 @@ class SceneMain extends Phaser.Scene{
         repeat: -1   
         });
 
+        // Creating portal rotate animation
         this.anims.create({
             key: 'portal',
             frames: this.anims.generateFrameNumbers('waterfallsheet',{start: 156, end: 157}) ,
             frameRate: 8,
             repeat: -1   
-            });
-        // this.music = this.sound.playAudioSprite('sfx','upper');
+        });
+
+        // Playing sound when entering the game
         this.music.play('upper');
         this.music.setVolume(0.05)
         
-        ground = this.physics.add.staticGroup();
         const width = this.scale.width;
         const height = this.scale.height;
 
@@ -168,6 +132,8 @@ class SceneMain extends Phaser.Scene{
         cam = this.cameras.main.startFollow(this.player);
 
 
+        // Creating game objects from object layer 
+        // Objects would be creating using the x and y positions from the object layer
         const objectsLayer = map.getObjectLayer('objectLocations');
         objectsLayer.objects.forEach(objData => {
             const {x = 0, y = 0, name, width = 0, height = 0} = objData
@@ -179,6 +145,27 @@ class SceneMain extends Phaser.Scene{
                     e.setScale(scaleValue);
                     this.enemies.add(e);
                     this.physics.add.collider(this.enemies,layer);
+                    break;
+                case 'mushroomPos':
+                    var mushroom = new Mushroom(this, x, y, 'mushroommonster',20);
+                    mushroom.body.setSize(this.width,this.height,true);
+                    mushroom.setScale(scaleValue);
+                    this.enemies.add(mushroom);
+                    this.physics.add.collider(this.enemies, layer);
+                    break;
+                case 'eyemonsterPos':
+                    var eyemonster = new EyeMonster(this, x, y, 'eyemonster', 15);
+                    eyemonster.body.setSize(this.width,this.height,true);
+                    eyemonster.setScale(scaleValue);
+                    this.enemies.add(eyemonster);
+                    this.physics.add.collider(this.enemies, layer);
+                    break;
+                case 'goblinPos':
+                    var goblin = new Goblin(this, x, y, 'goblinmonster', 20);
+                    goblin.body.setSize(this.width,this.height,true);
+                    goblin.setScale(scaleValue);
+                    this.enemies.add(goblin);
+                    this.physics.add.collider(this.enemies, layer);
                     break;
                 case 'gold':
                     const star = this.add.sprite(x, y, 'gold')
@@ -221,34 +208,35 @@ class SceneMain extends Phaser.Scene{
                 default:
                     break;
             }
-        })
+        });
+
+        // setting the velocity of all the objects in the enemies group
         this.enemies.setVelocityX(100);
 
-
+        // creating overlap functions between the player and collectable game objects
         this.physics.add.overlap(this.player, this.shields, this.useShield, null, this);
         this.physics.add.overlap(this.player, this.powerups, this.usePowerUp, null, this);
-        this.physics.add.overlap(this.player, this.golds, this.collectStar, null, this);
+        this.physics.add.overlap(this.player, this.golds, this.collectCoins, null, this);
    
-        ////////////////////////////////////////////////////////
-        //Collision
+        //setting up overlap functions between the player and enenmies
         this.physics.add.overlap(this.player, this.enemies, this.handlePlayerEnemyCollision, null, this);
+        //setting up overlap functions between the player and water objects
         this.physics.add.overlap(this.player, this.water, this.handlePlayerWaterOverlap, null, this);
 
-        ///////////////////////////////////////////////////////
         //Health Bar
-        this.healthBar = new HealthBar(this, 20, 20, this.player.health, this.player.sheild, this.player.rage);
+        this.healthBar = new HUD(this, 20, 20, this.player.health, this.player.sheild, this.player.rage);
 
     }
 
+    // Create a region in the game where the player can enter to complete the level
     endGameRegion(){
-        console.log('Overlap');
         if (this.player.body.blocked.down) {
-            console.log("Number of enemies destroyed is "+Entity.enemiesDestroyed);
             this.scene.start('EndGameScene',{state: "Level complete",au: this.healthBar.score, ekia: Entity.enemiesDestroyed});
         }
     }
 
-    collectStar (player, gold)
+    // Callback function to handle picking up coins
+    collectCoins (player, gold)
     {
         this.music.play('coin');
         this.music.setVolume(0.3)
@@ -257,6 +245,7 @@ class SceneMain extends Phaser.Scene{
         this.healthBar.score += 10;
     }
 
+    // Callback function to handle picking up shield
     useShield(player,shield){
         this.music.play('Rise1');
         this.music.setVolume(0.3);
@@ -269,6 +258,7 @@ class SceneMain extends Phaser.Scene{
         }
     }
 
+    // Callback function to handle picking up powerup
     usePowerUp(player, powerup){
         this.music.play('Rise1');
         this.music.setVolume(0.3);
@@ -281,9 +271,9 @@ class SceneMain extends Phaser.Scene{
         }
     }
 
+    // Callback functoin to handle water overlap
     handlePlayerWaterOverlap(p,e){
         p.setTint(0xff0000);
-        // setInterval(this.drown(p), 5000)
         this.time.addEvent({
             delay: 3000,
             callback: () =>{
@@ -293,9 +283,9 @@ class SceneMain extends Phaser.Scene{
             callbackscope: this,
             loop: false
         });
-        // console.log(p.health);
-    }
+    } // End of handlePlayerWaterOverlap
 
+    // Callback function to handle player collision with enemy
     handlePlayerEnemyCollision(p,e){
         let sprite = p;
         let enemies = e;
@@ -317,52 +307,52 @@ class SceneMain extends Phaser.Scene{
             }            
         });
         this.enemies.children.iterate((child) =>{
-                if (child.anims.currentAnim.key == 'lightEnemy_attack') {
-                    child.causedDamage = true
-                    child.on(Phaser.Animations.Events.ANIMATION_COMPLETE, ()=>{
-                        if (child.inRange && child.causedDamage) {
-                            sound.play('attack1');
-                            child.causedDamage = false
-                            // console.log('player shield is '+ this.player.shield);
-                            if (this.player.shield <= 0) {
-                                sprite.health -= child.damage;
-                                // console.log('health is ',sprite.health);
-                            }else{
-                                sprite.shield -= 50;
-                                // console.log('shield is', sprite.shield);
-                            }
-                        }
-                    })
+            
+                if (child.causedDamage) {
+                    child.causedDamage = false
+                    console.log("Chil attacking is "+child.attacking);
+                    console.log("i am about to cause damage here");
+                    sound.play('attack1');
+                    if (this.player.shield <= 0) {
+                        this.player.health -= child.damage;
+                        console.log('about to cause damage');
+                    }else{
+                        this.player.shield -= 50;
+                        console.log('about to cause damage');
+                    }
                 }
         })
-    }
-
-    drown(p){
-        p.health -= 0.5;
-    }
+    }// End of handlePlayerEnemyCollision
 
     update(time,delta) {
+        // Update player and HUD only if player is alive
         if (!this.player.isDead) {
-            this.healthBar.updateHealth(this.player.health, this.player.shield,this.player.rage);
+            this.healthBar.updateHUD(this.player.health, this.player.shield,this.player.rage);
             if (this.player.health <= 0) {
                 this.player.playdeath(this.healthBar);
             }else {
                 this.player.update();
             }
         }
+
+        // Iterate through all the children
         this.enemies.children.iterate((child) => {
             if (this.player.health > 0) {
+                // Making sure child is not dead
                 if (!child.isDead) {
+                    // Check if child is ahead or behind the player
                     if (this.player.x > child.x ) {
                         child.aheadOfPlayer = false;
                     }else{
                         child.aheadOfPlayer = true;
                     }
-                    if (Math.abs(child.x - this.player.x)  <= 80 ) {
+                    // Validating the fighting range between child and player
+                    if (Math.abs(child.x - this.player.x)  <= child.fightingRange && Math.abs(child.y - this.player.y)  < 80) {
                         child.contactedPlayer = true;
                         this.player.inRange = true;
                         child.inRange = true;
                     }else{
+                        // Change state if contact range exceeded
                         if (child.contactedPlayer && Math.abs(child.x - this.player.x) > 200) {
                             child.contactedPlayer = false;
                         }

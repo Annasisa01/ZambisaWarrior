@@ -1,0 +1,236 @@
+{"frames": [
+
+{
+	"filename": "Goblin_Attack_1.png",
+	"frame": {"x":0,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Attack_2.png",
+	"frame": {"x":90,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Attack_3.png",
+	"frame": {"x":180,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Attack_4.png",
+	"frame": {"x":270,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Attack_5.png",
+	"frame": {"x":360,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Attack_6.png",
+	"frame": {"x":450,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Attack_7.png",
+	"frame": {"x":540,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Attack_8.png",
+	"frame": {"x":630,"y":0,"w":90,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":46},
+	"sourceSize": {"w":90,"h":46}
+},
+{
+	"filename": "Goblin_Death_1.png",
+	"frame": {"x":720,"y":0,"w":53,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":53,"h":40},
+	"sourceSize": {"w":53,"h":40}
+},
+{
+	"filename": "Goblin_Death_2.png",
+	"frame": {"x":773,"y":0,"w":53,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":53,"h":40},
+	"sourceSize": {"w":53,"h":40}
+},
+{
+	"filename": "Goblin_Death_3.png",
+	"frame": {"x":826,"y":0,"w":53,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":53,"h":40},
+	"sourceSize": {"w":53,"h":40}
+},
+{
+	"filename": "Goblin_Death_4.png",
+	"frame": {"x":879,"y":0,"w":53,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":53,"h":40},
+	"sourceSize": {"w":53,"h":40}
+},
+{
+	"filename": "Goblin_Hit_1.png",
+	"frame": {"x":932,"y":0,"w":45,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":38},
+	"sourceSize": {"w":45,"h":38}
+},
+{
+	"filename": "Goblin_Hit_2.png",
+	"frame": {"x":977,"y":0,"w":45,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":38},
+	"sourceSize": {"w":45,"h":38}
+},
+{
+	"filename": "Goblin_Hit_3.png",
+	"frame": {"x":1022,"y":0,"w":45,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":38},
+	"sourceSize": {"w":45,"h":38}
+},
+{
+	"filename": "Goblin_Hit_4.png",
+	"frame": {"x":1067,"y":0,"w":45,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":38},
+	"sourceSize": {"w":45,"h":38}
+},
+{
+	"filename": "Goblin_Idle_1.png",
+	"frame": {"x":1112,"y":0,"w":38,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":46},
+	"sourceSize": {"w":38,"h":46}
+},
+{
+	"filename": "Goblin_Idle_2.png",
+	"frame": {"x":1150,"y":0,"w":38,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":46},
+	"sourceSize": {"w":38,"h":46}
+},
+{
+	"filename": "Goblin_Idle_3.png",
+	"frame": {"x":1188,"y":0,"w":38,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":46},
+	"sourceSize": {"w":38,"h":46}
+},
+{
+	"filename": "Goblin_Idle_4.png",
+	"frame": {"x":1226,"y":0,"w":38,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":46},
+	"sourceSize": {"w":38,"h":46}
+},
+{
+	"filename": "Goblin_Run_1.png",
+	"frame": {"x":1264,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+},
+{
+	"filename": "Goblin_Run_2.png",
+	"frame": {"x":1304,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+},
+{
+	"filename": "Goblin_Run_3.png",
+	"frame": {"x":1344,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+},
+{
+	"filename": "Goblin_Run_4.png",
+	"frame": {"x":1384,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+},
+{
+	"filename": "Goblin_Run_5.png",
+	"frame": {"x":1424,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+},
+{
+	"filename": "Goblin_Run_6.png",
+	"frame": {"x":1464,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+},
+{
+	"filename": "Goblin_Run_7.png",
+	"frame": {"x":1504,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+},
+{
+	"filename": "Goblin_Run_8.png",
+	"frame": {"x":1544,"y":0,"w":40,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":46},
+	"sourceSize": {"w":40,"h":46}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "goblinmonster.png",
+	"format": "RGBA8888",
+	"size": {"w":1584,"h":46},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:806373b8c8e97737d6f4eb7cac3b4612:473884405f1d45ae018e0d9d6b089285:6f70b26dbe7aef64d7a741ebb16102ea$"
+}
+}

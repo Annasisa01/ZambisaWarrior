@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="410" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="108">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="410" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="109">
  <editorsettings>
   <export target="public/assets/level2.json" format="json"/>
  </editorsettings>
@@ -345,7 +345,7 @@
    </properties>
   </object>
   <object id="75" name="endPos" gid="193" x="13022.7" y="603.845" width="32" height="32"/>
-  <object id="76" name="startPos2" x="66.6581" y="128.189" width="26.9196" height="26.9196"/>
+  <object id="76" name="mushroomPos" x="66.6581" y="128.189" width="26.9196" height="26.9196"/>
   <object id="77" name="startPos" x="735.162" y="383.925" width="26.9196" height="26.9196"/>
   <object id="78" name="startPos" x="1183.56" y="384.085" width="26.9196" height="26.9196"/>
   <object id="80" name="invisibleWalls" x="1344.95" y="604.074" width="11.0653" height="95.5638">
@@ -353,10 +353,10 @@
     <property name="collides" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="81" name="startPos2" x="959.028" y="607.48" width="26.9196" height="26.9196"/>
+  <object id="81" name="mushroomPos" x="959.028" y="607.48" width="26.9196" height="26.9196"/>
   <object id="82" name="startPos" x="1538.23" y="606.044" width="26.9196" height="26.9196"/>
   <object id="83" name="startPos" x="2463.26" y="610.376" width="26.9196" height="26.9196"/>
-  <object id="86" name="startPos2" x="3389.76" y="606.223" width="26.9196" height="26.9196"/>
+  <object id="86" name="goblinPos" x="3389.76" y="606.223" width="26.9196" height="26.9196"/>
   <object id="87" name="invisibleWalls" x="3187.74" y="606.638" width="11.0653" height="95.5638">
    <properties>
     <property name="collides" type="bool" value="true"/>
@@ -364,7 +364,7 @@
   </object>
   <object id="88" name="startPos" x="3966.37" y="606.509" width="26.9196" height="26.9196"/>
   <object id="89" name="startPos" x="4861.07" y="606.203" width="26.9196" height="26.9196"/>
-  <object id="90" name="startPos2" x="1761.7" y="282.043" width="26.9196" height="26.9196"/>
+  <object id="90" name="goblinPos" x="1761.7" y="282.043" width="26.9196" height="26.9196"/>
   <object id="92" name="startPos" x="2877.78" y="279.461" width="26.9196" height="26.9196"/>
   <object id="93" name="startPos" x="3452.77" y="382.526" width="26.9196" height="26.9196"/>
   <object id="94" name="startPos" x="4605.47" y="379.814" width="26.9196" height="26.9196"/>
@@ -374,10 +374,11 @@
   <object id="99" name="powerup" gid="211" x="9032.25" y="631.323" width="16" height="16"/>
   <object id="100" name="shield" gid="215" x="7686.53" y="631.323" width="16" height="16"/>
   <object id="102" name="startPos" x="7817.42" y="603.37" width="26.9196" height="26.9196"/>
-  <object id="103" name="startPos2" x="8799.74" y="603.743" width="26.9196" height="26.9196"/>
+  <object id="103" name="mushroomPos" x="8799.74" y="603.743" width="26.9196" height="26.9196"/>
   <object id="104" name="startPos" x="7996.55" y="415.201" width="26.9196" height="26.9196"/>
   <object id="105" name="startPos" x="8803.81" y="415.201" width="26.9196" height="26.9196"/>
   <object id="106" name="startPos" x="10523.6" y="320.357" width="26.9196" height="26.9196"/>
   <object id="107" name="startPos" x="11394.4" y="315.519" width="26.9196" height="26.9196"/>
+  <object id="108" name="goblinPos" x="2403.17" y="288.619" width="26.9196" height="26.9196"/>
  </objectgroup>
 </map>
