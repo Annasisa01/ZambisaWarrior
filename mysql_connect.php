@@ -3,7 +3,7 @@
   $db_user = 'root';
   $db_password = 'root';
   $db_db = 'Zam';
-  $db_port = 8888;
+  $db_port = 8889;
 
   $mysqli = new mysqli(
     $db_host,

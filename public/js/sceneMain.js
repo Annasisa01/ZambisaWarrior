@@ -15,20 +15,21 @@ const createAlligned = (scene, count, texture, scrollFactor ) => {
 }
 
 class SceneMain extends Phaser.Scene{
-    constructor() {
-        super('SceneMain');
-    }
-    
-    preload()
-    {
-       
+    constructor(key,tempMap,pos) {
+        super(key);
+        this.map = tempMap;
+        this.playerPos = pos;
+        // instance variable used for spacing objects
+        this.spacing = 150;
     }
     
     create() {
-        // Setting the global variable level to current level: 1
-        this.game.config.globals.level = 1;
-
-        // initializing sounds for sfx to class variables
+        this.anims.resumeAll();
+        this.physics.world.resume();
+        this.gamePaused = false;
+        // Importing sound manager
+        this.soundManager = this.sys.game.config.globals.musicManager;
+        // initializing sounds for sfx to instance variables
         this.music = this.sound.addAudioSprite('sfx');
         this.music2 = this.sound.addAudioSprite('sfx2');
 
@@ -84,9 +85,15 @@ class SceneMain extends Phaser.Scene{
             repeat: -1   
         });
 
+        // this.anims.create({
+        //     key
+        // })
+
         // Playing sound when entering the game
-        this.music.play('upper');
-        this.music.setVolume(0.05)
+        if (this.soundManager.soundOn) {
+            this.music.play('upper');
+            this.music.setVolume(0.05)
+        }
         
         const width = this.scale.width;
         const height = this.scale.height;
@@ -105,23 +112,29 @@ class SceneMain extends Phaser.Scene{
         createAlligned(this,6, 'level3', 0.5);
 
         // Leaves
-        createAlligned(this, 12, 'level5', 1);
+        // createAlligned(this, 12, 'level5', 1);
 
 
         // Map objects from Tiled.
-        const map = this.make.tilemap({key:'grassmap'});
+        const map = this.make.tilemap({key:this.map});
         var tiles = map.addTilesetImage('grassworld','tiles');
         var watertiles = map.addTilesetImage('WaterTileset', 'watersheet');
         var tilesets = [tiles,watertiles];
+
+        // Creating layer from tiled map
         var layer = map.createLayer('ground',tilesets);
+        // Set layer to collide with other game objects
         layer.setCollisionByProperty({ collides: true });
+        // Set world bounds to height and width of the layer
         this.physics.world.setBounds(0, 0, layer.width, layer.height);
+        // Creating a fade in effect for the level
         this.cameras.main.fadeIn(5000);
+        // Set bounds for the camera
         this.cameras.main.setBounds(0, -(window.innerHeight - layer.height), layer.width, height);
 
         ///////////////////////////////////////////////////
         //Creating a new player
-        this.player = new Player(this, 100, 604, 'player', 100);
+        this.player = new Player(this, 100, this.playerPos, 'player', 100);
         this.player.setScale(scaleValue);
         this.player.body.setCollideWorldBounds(true);
         this.physics.add.collider(this.player, layer);
@@ -137,7 +150,6 @@ class SceneMain extends Phaser.Scene{
         const objectsLayer = map.getObjectLayer('objectLocations');
         objectsLayer.objects.forEach(objData => {
             const {x = 0, y = 0, name, width = 0, height = 0} = objData
-
             switch (name) {
                 case 'startPos':
                     const e = new LightEnemy(this, x, y, 'lightenemy',"LightEnemy", 25);
@@ -211,7 +223,28 @@ class SceneMain extends Phaser.Scene{
         });
 
         // setting the velocity of all the objects in the enemies group
-        this.enemies.setVelocityX(100);
+        this.enemies.children.iterate((child)=>{
+            /*
+                Get a random direction for enemey to move to
+                Set enemey speed to positive if facing right
+                And to negative if facing left 
+            */
+            let dir = Math.floor(Math.random()*2)
+            switch (dir) {
+                case 0:
+                    this.flipX = true;
+                    child.body.setVelocityX(child.speed)
+                    break;
+                case 1:
+                    this.flipX = false;
+                    child.body.setVelocityX(-child.speed)
+                    break;
+                default:
+                    break;
+            }
+            
+        })
+        // this.enemies.setVelocityX(100);
 
         // creating overlap functions between the player and collectable game objects
         this.physics.add.overlap(this.player, this.shields, this.useShield, null, this);
@@ -223,32 +256,125 @@ class SceneMain extends Phaser.Scene{
         //setting up overlap functions between the player and water objects
         this.physics.add.overlap(this.player, this.water, this.handlePlayerWaterOverlap, null, this);
 
-        //Health Bar
-        this.healthBar = new HUD(this, 20, 20, this.player.health, this.player.sheild, this.player.rage);
+        //HUD
+        this.hud = new HUD(this, 20, 20, this.player.health, this.player.sheild, this.player.rage);
 
+        this.pauseContainer = this.add.container(window.innerWidth/2, window.innerHeight/2).setAlpha(0).setScrollFactor(0).setDepth(200)
+        
+        this.rectBackground = this.add.rectangle(0,0, window.innerWidth/2.3,450, 0xf7e094);
+        this.pauseContainer.add(this.rectBackground);
+
+        // Paused text for header
+        this.pauseText = this.add.text(this.rectBackground.x,this.rectBackground.y-this.spacing,"Paused",{
+            fontFamily: 'Papyrus',
+            fontSize: '90px',
+            color: '#000000',
+        }).setOrigin(0.5);
+        this.pauseContainer.add(this.pauseText);
+
+        // get music manager from system gloabal variable musicManager
+        this.musicManager = this.sys.game.config.globals.musicManager;
+
+        this.musicButton = this.add.image(this.rectBackground.x - this.spacing, this.rectBackground.y - this.spacing/2, 'checkedbox').setInteractive().setScrollFactor(0)
+        this.musicButton.on('pointerdown', function () {
+            console.log("Music btn clicked");
+            this.musicManager.musicOn = !this.musicManager.musicOn;
+            this.updateAudio();
+        }.bind(this));
+        this.musicText = this.add.text(this.rectBackground.x - this.spacing * 0.5, this.rectBackground.y - this.spacing/1.75, 'Music Enabled', {fontFamily: 'Papyrus', fill: '0x000000', fontSize: 24 });
+
+        this.soundButton = this.add.image(this.rectBackground.x - this.spacing, this.rectBackground.y , 'checkedbox')
+        .setInteractive().setScrollFactor(0)
+        .on('pointerdown', function () {
+            console.log("Sound btn clicked");
+            this.musicManager.soundOn = !this.musicManager.soundOn;
+            this.updateAudio();
+        }.bind(this));
+        this.soundText = this.add.text(this.rectBackground.x - this.spacing * 0.5, this.rectBackground.y - this.spacing * 0.075, 'SFX Enabled', {fontFamily: 'Papyrus', fill: '0x000000', fontSize: 24 });
+
+        this.updateAudio();
+
+        this.pauseContainer.add(this.musicButton);
+        this.pauseContainer.add(this.soundButton);
+        this.pauseContainer.add(this.musicText);
+        this.pauseContainer.add(this.soundText);
+
+        this.updateAudio();
+        
+        this.resumeText = this.add.text(this.rectBackground.x, this.rectBackground.y + this.spacing * 0.5, "Press 'P' to resume",{fontFamily: 'Papyrus',fontSize: '30px',align: 'center',color: '#000000'}).setOrigin(0.5)
+        this.pauseHome = this.add.text(this.rectBackground.x - this.spacing * 0.5, this.rectBackground.y + this.spacing, "Home",{fontFamily: 'Papyrus',fontSize: '30px',align: 'center',color: '#000000',backgroundColor: '#6fb83b'})
+        .setPadding(30,10,30,10)
+        .setInteractive().setScrollFactor(0)
+        .on("pointerdown",()=>{
+            this.anims.resumeAll();
+            this.physics.world.resume();
+            this.scene.start('HomeScene');
+        })
+        this.pauseContainer.add(this.resumeText);
+        this.pauseContainer.add(this.pauseHome);
+
+        this.pause = this.input.keyboard.addKey('P');
+        this.pause.on('down', ()=>{
+            if (!this.gamePaused) {
+                this.anims.pauseAll();
+                this.physics.world.pause();
+                this.pauseContainer.setAlpha(1)
+            }else{
+                this.pauseContainer.setAlpha(0)
+                this.anims.resumeAll();
+                this.physics.world.resume();
+            }
+            this.gamePaused = !this.gamePaused
+            // this.scene.switch('PausedScene');
+        });
+
+    }
+
+    updateAudio(){
+        if (this.musicManager.musicOn === false) {
+            this.musicButton.setTexture('checkbox');
+            this.sys.game.config.globals.bgMusic.stop();
+            this.musicManager.bgMusicPlaying = false;
+          } else {
+            this.musicButton.setTexture('checkedbox');
+            if (this.musicManager.bgMusicPlaying === false) {
+              this.sys.game.config.globals.bgMusic.play();
+              this.musicManager.bgMusicPlaying = true;
+            }
+          }
+           
+          if (this.musicManager.soundOn === false) {
+            this.soundButton.setTexture('checkbox');
+          } else {
+            this.soundButton.setTexture('checkedbox');
+          }
     }
 
     // Create a region in the game where the player can enter to complete the level
     endGameRegion(){
         if (this.player.body.blocked.down) {
-            this.scene.start('EndGameScene',{state: "Level complete",au: this.healthBar.score, ekia: Entity.enemiesDestroyed});
+            this.scene.start('EndGameScene',{state: "Level complete",au: this.hud.score, ekia: Entity.enemiesDestroyed});
         }
     }
 
     // Callback function to handle picking up coins
     collectCoins (player, gold)
     {
-        this.music.play('coin');
-        this.music.setVolume(0.3)
+        if (this.soundManager.soundOn) {
+            this.music.play('coin');
+            this.music.setVolume(0.05)
+        }
         gold.visible = false;
         gold.body.enable = false;
-        this.healthBar.score += 10;
+        this.hud.score += 10;
     }
 
     // Callback function to handle picking up shield
     useShield(player,shield){
-        this.music.play('Rise1');
-        this.music.setVolume(0.3);
+        if (this.soundManager.soundOn) {
+            this.music.play('Rise1');
+            this.music.setVolume(0.3);
+        }
         shield.visible = false;
         shield.body.enable = false;
         if (player.shield <= 50) {
@@ -260,8 +386,10 @@ class SceneMain extends Phaser.Scene{
 
     // Callback function to handle picking up powerup
     usePowerUp(player, powerup){
-        this.music.play('Rise1');
-        this.music.setVolume(0.3);
+        if (this.soundManager.soundOn) {
+            this.music.play('Rise1');
+            this.music.setVolume(0.3);
+        }
         powerup.visible = false;
         powerup.body.enable = false;
         if (player.rage <= 50) {
@@ -294,12 +422,15 @@ class SceneMain extends Phaser.Scene{
         let currentFrame = sprite.anims.currentFrame;
         var frameCount = sprite.anims.getTotalFrames();
         sprite.on(Phaser.Animations.Events.ANIMATION_COMPLETE, ()=>{
-            if ((currentAnim.key == "attack" || currentAnim.key == "dashA") && sprite.inRange) {
+            if ((currentAnim.key == "attack2" || currentAnim.key == "dashA") && sprite.inRange) {
                 if (currentFrame.index == frameCount && sprite.attacked) {
                     sprite.attacked = false;
                     this.enemies.children.iterate((child) => {
                         if (child.inRange) {
-                            sound.play('attack1');
+                            if (this.soundManager.soundOn) {
+                                sound.play('attack1');
+                                sound.setVolume(0.3)
+                            }
                             child.health -= 10;
                         }
                     });
@@ -307,63 +438,69 @@ class SceneMain extends Phaser.Scene{
             }            
         });
         this.enemies.children.iterate((child) =>{
-            
+            if (!this.player.rage) {
                 if (child.causedDamage) {
-                    child.causedDamage = false
-                    console.log("Chil attacking is "+child.attacking);
-                    console.log("i am about to cause damage here");
-                    sound.play('attack1');
+                    child.causedDamage = false;
+                    if (this.soundManager.soundOn) {
+                        sound.play('attack1');
+                    }
                     if (this.player.shield <= 0) {
                         this.player.health -= child.damage;
-                        console.log('about to cause damage');
                     }else{
                         this.player.shield -= 50;
-                        console.log('about to cause damage');
                     }
                 }
+            }
+                
         })
     }// End of handlePlayerEnemyCollision
 
     update(time,delta) {
-        // Update player and HUD only if player is alive
-        if (!this.player.isDead) {
-            this.healthBar.updateHUD(this.player.health, this.player.shield,this.player.rage);
-            if (this.player.health <= 0) {
-                this.player.playdeath(this.healthBar);
-            }else {
-                this.player.update();
-            }
-        }
-
-        // Iterate through all the children
-        this.enemies.children.iterate((child) => {
-            if (this.player.health > 0) {
-                // Making sure child is not dead
-                if (!child.isDead) {
-                    // Check if child is ahead or behind the player
-                    if (this.player.x > child.x ) {
-                        child.aheadOfPlayer = false;
-                    }else{
-                        child.aheadOfPlayer = true;
-                    }
-                    // Validating the fighting range between child and player
-                    if (Math.abs(child.x - this.player.x)  <= child.fightingRange && Math.abs(child.y - this.player.y)  < 80) {
-                        child.contactedPlayer = true;
-                        this.player.inRange = true;
-                        child.inRange = true;
-                    }else{
-                        // Change state if contact range exceeded
-                        if (child.contactedPlayer && Math.abs(child.x - this.player.x) > 200) {
-                            child.contactedPlayer = false;
-                        }
-                        child.inRange = false;
-                    }
+        if (!this.gamePaused) {
+            // Update player and HUD only if player is alive
+            if (!this.player.isDead) {
+                if (this.hud.currentRage <= 0) {
+                    this.player.rage = false
+                    this.player.clearTint();
+                    this.player.setAlpha(1);
                 }
-            }else{
-                child.attacking = false
+                this.hud.updateHUD(this.player.health, this.player.shield,this.player.rage);
+                if (this.player.health <= 0) {
+                    this.player.playdeath(this.hud);
+                }else {
+                    this.player.update();
+                }
             }
-            
-        });
+
+            // Iterate through all the children
+            this.enemies.children.iterate((child) => {
+                if (this.player.health > 0) {
+                    // Making sure child is not dead
+                    if (!child.isDead) {
+                        // Check if child is ahead or behind the player
+                        if (this.player.x > child.x ) {
+                            child.aheadOfPlayer = false;
+                        }else{
+                            child.aheadOfPlayer = true;
+                        }
+                        // Validating the fighting range between child and player
+                        if (Math.abs(child.x - this.player.x)  <= child.fightingRange && Math.abs(child.y - this.player.y)  < 80) {
+                            child.contactedPlayer = true;
+                            this.player.inRange = true;
+                            child.inRange = true;
+                        }else{
+                            // Change state if contact range exceeded
+                            if (child.contactedPlayer && Math.abs(child.x - this.player.x) > 200 || Math.abs(child.y - this.player.y)  >= 80) {
+                                child.contactedPlayer = false;
+                            }
+                            child.inRange = false;
+                        }
+                    }
+                }else{
+                    child.attacking = false
+                }
+            });
+        }
     }//End of update
      
 }

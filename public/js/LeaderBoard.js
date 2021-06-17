@@ -25,7 +25,7 @@ class LeaderBoard extends Phaser.Scene{
 
         this.add.rectangle(window.innerWidth/4,window.innerHeight/3 + 30,window.innerWidth/2,300,0xf7e094).setOrigin(0);
 
-        this.add.text(this.leaderboard.x, this.leaderboard.y + 50,"Players must complete all levels to join the leaderboard",{
+        this.add.text(this.leaderboard.x, this.leaderboard.y + 50,"Leaderboard features would be coming in the next version",{
             fontFamily: 'Papyrus',
             fontSize: '25px',
             color: '#000000',

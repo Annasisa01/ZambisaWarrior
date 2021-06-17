@@ -1,7 +1,7 @@
-var btnWidth = 150;
-var btnHeight = 40;
-var textBoxWidth = 300;
-var textBoxHeight = 40;
+const BTNWIDTH = 150;
+const BTNHEIGHT = 40;
+const TEXTBOXWIDTH = 300;
+const TEXTBOXHEIGHT = 40;
 class Button{
     constructor(scene, x, y, text, radius){
         this.scene = scene;
@@ -10,25 +10,30 @@ class Button{
         this.text = text;
         this.radius = radius;
         
-        
+        // Adding graphics to this scene
         this.graphics = this.scene.add.graphics();
-
-        // const buttonBackground = new Phaser.Geom.Rectangle(this.x, this.y, 110, 40);
-
         this.graphics.fillStyle(0xf7e094,1);
-        this.graphics.lineStyle(2, 0x000000, 1);
-        this.graphics.fillRoundedRect(this.x, this.y, btnWidth, btnHeight, this.radius);
-        this.graphics.strokeRoundedRect(this.x, this.y, btnWidth, btnHeight, this.radius);
 
+        // Creating a rounded rectangle for the button
+        this.graphics.fillRoundedRect(this.x, this.y, BTNWIDTH, BTNHEIGHT, this.radius);
+        // Creating a stroke rounded rectangle to serve as outline for the button
+        this.graphics.strokeRoundedRect(this.x, this.y, BTNWIDTH, BTNHEIGHT, this.radius);
+
+        // Creating the text that would display on the button
+        // Setting event listeners for the text to serve as the main button
         this.displayWord = this.scene.add.text(x+75, y+20, this.text, {fontFamily: 'Papyrus',fontSize: '18px', fill: '#000000'})
             .setOrigin(0.5)
             .setPadding(30,10,30,10)
             .setInteractive()
-            .on('pointerdown', this.handleHomeButtons)
+            .on('pointerdown', this.handleButtons)
             .on('pointerover', this.handleHoverButtons)
     }
 
-    handleHomeButtons(){
+    // Fucntion to handle all button creation
+    // And property assignment
+    handleButtons(){
+        // Check what button was clicked
+        // Set all the properties concerned with the particular button
         switch (this.text) {
             case "Instructions":
                 console.log("Instruction Btn");
@@ -37,23 +42,23 @@ class Button{
             case "New game":
                 console.log("New game Btn");
                 this.container = this.scene.add.container(window.innerWidth*0.75,this.scene.newGameBtn.y ).setAlpha(1)
-                console.log(btnHeight *0.375);
-                const inputText = this.scene.add.rexInputText(-btnWidth/3, btnHeight *0.48, textBoxWidth, textBoxHeight, {fontFamily: 'Papyrus',fontSize: '30px',align: 'center',color: '#000000',backgroundColor: '#ffffff',placeholder:"Please enter username"});
-                const submitBtn = this.scene.add.text(inputText.x - 40, textBoxHeight, "Submit",{fontFamily: 'Papyrus',fontSize: '30px',align: 'center',color: '#000000',backgroundColor: '#f7e094'})
+                const INPUTTEXT = this.scene.add.rexInputText(-BTNWIDTH/3, BTNHEIGHT *0.48, TEXTBOXWIDTH, TEXTBOXHEIGHT, {fontFamily: 'Papyrus',fontSize: '30px',align: 'center',color: '#000000',backgroundColor: '#ffffff',placeholder:"Please enter username"});
+                const SUBMITBTN = this.scene.add.text(INPUTTEXT.x - 40, TEXTBOXHEIGHT, "Submit",{fontFamily: 'Papyrus',fontSize: '30px',align: 'center',color: '#000000',backgroundColor: '#f7e094'})
+                    .setPadding(30,10,30,10)
                     .setInteractive()
                     .on("pointerdown", ()=>{
                         console.log("Submit btn clicked");
-                        if (inputText.text == "") {
+                        if (INPUTTEXT.text == "") {
                             alert("please enter a user name to continue")
                         }else{
                             this.scene.cameras.main.fadeOut(1500);
                             this.scene.cameras.main.once('camerafadeoutcomplete', function () {
-                                this.scene.scene.start('LevelOneDisp',{level: 1});
+                                this.scene.scene.start('LevelDisp',{level: 1});
                             });
                         }
                     })
-                this.container.add(inputText);
-                this.container.add(submitBtn);
+                this.container.add(INPUTTEXT);
+                this.container.add(SUBMITBTN);
                 break;
             case "Continue":
                 console.log("Continue Btn");
@@ -62,10 +67,10 @@ class Button{
                     this.scene.cameras.main.once('camerafadeoutcomplete', function () {
                         switch (this.scene.game.config.globals.level) {
                             case 2:
-                                this.scene.scene.start('LevelOneDisp',{level: 2});
+                                this.scene.scene.start('LevelDisp',{level: 2});
                                 break;
                             case 3:
-                                this.scene.scene.start('LevelOneDisp',{level: 3});
+                                this.scene.scene.start('LevelDisp',{level: 3});
                                 break;
                             default:
                                 break;
@@ -85,17 +90,30 @@ class Button{
                 console.log("Home Btn in OptoinScene clicked");
                 this.scene.scene.start('HomeScene');
                 break;
-            case "Exit":
-                console.log("Exit Btn");
+            case "Quit":
+                console.log("Quit Btn");
                 this.scene.game.destroy(true);
                 break;
             case "Play again":
                 console.log("Current level "+this.scene.game.config.globals.level);
-                switch (--this.scene.game.config.globals.level) {
+                switch (this.scene.game.config.globals.level) {
                     case 1:
-                        this.scene.scene.start("SceneMain")
+                        this.scene.cameras.main.fadeOut(1500);
+                        this.scene.cameras.main.once('camerafadeoutcomplete', function () {
+                            this.scene.scene.start('LevelDisp',{level: 1});
+                        });
                         break;
-                
+                    case 2:
+                        this.scene.cameras.main.fadeOut(1500);
+                        this.scene.cameras.main.once('camerafadeoutcomplete', function () {
+                            this.scene.scene.start('LevelDisp',{level: 2});
+                        });
+                        break;
+                    case 3:
+                        this.scene.cameras.main.fadeOut(1500);
+                        this.scene.cameras.main.once('camerafadeoutcomplete', function () {
+                            this.scene.scene.start('LevelDisp',{level: 3});
+                        });
                     default:
                         break;
                 }
@@ -104,13 +122,20 @@ class Button{
                 console.log("Next btn clicked");
                 this.scene.game.config.globals.totalGold += EndGameScene.currentGold;
                 localStorage.setItem('totalGold', this.scene.game.config.globals.totalGold);
+                localStorage.setItem("level",++this.scene.game.config.globals.level);
                 console.log("current level is "+this.scene.game.config.globals.level);
                 switch (this.scene.game.config.globals.level) {
                     case 2:
-                        this.scene.scene.start('LevelTwo')
+                        this.scene.cameras.main.fadeOut(1500);
+                        this.scene.cameras.main.once('camerafadeoutcomplete', function () {
+                            this.scene.scene.start('LevelDisp',{level: 2});
+                        });
                         break;
                     case 3:
-                        this.scene.scene.start("LevelThree")
+                        this.scene.cameras.main.fadeOut(1500);
+                        this.scene.cameras.main.once('camerafadeoutcomplete', function () {
+                            this.scene.scene.start('LevelDisp',{level: 3});
+                        });
                         break;
                     default:
                         break;
@@ -120,11 +145,8 @@ class Button{
         }
     }
 
-    handleHoverButtons(){
-        // this.displayWord.setColor('#ffffff');
-    }
-
-    update(){
-        
+    handleHoverButtons(p){
+        // p.setColor(0xffffff);
+        console.log("i am hovering");
     }
 }

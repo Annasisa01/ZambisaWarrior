@@ -57,7 +57,7 @@
 	"sourceSize": {"w":35,"h":31}
 },
 {
-	"filename": "Warrior_Attack_1.png",
+	"filename": "Warrior_Attack_01.png",
 	"frame": {"x":0,"y":31,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -65,7 +65,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_2.png",
+	"filename": "Warrior_Attack_02.png",
 	"frame": {"x":63,"y":31,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -73,7 +73,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_3.png",
+	"filename": "Warrior_Attack_03.png",
 	"frame": {"x":126,"y":31,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -81,7 +81,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_4.png",
+	"filename": "Warrior_Attack_04.png",
 	"frame": {"x":189,"y":31,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -89,7 +89,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_5.png",
+	"filename": "Warrior_Attack_05.png",
 	"frame": {"x":0,"y":74,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -97,7 +97,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_6.png",
+	"filename": "Warrior_Attack_06.png",
 	"frame": {"x":63,"y":74,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -105,7 +105,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_7.png",
+	"filename": "Warrior_Attack_07.png",
 	"frame": {"x":126,"y":74,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -113,7 +113,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_8.png",
+	"filename": "Warrior_Attack_08.png",
 	"frame": {"x":189,"y":74,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,
@@ -121,7 +121,7 @@
 	"sourceSize": {"w":63,"h":43}
 },
 {
-	"filename": "Warrior_Attack_9.png",
+	"filename": "Warrior_Attack_09.png",
 	"frame": {"x":0,"y":117,"w":63,"h":43},
 	"rotated": false,
 	"trimmed": false,

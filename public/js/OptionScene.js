@@ -21,7 +21,7 @@ class OptionScene extends Phaser.Scene{
       this.rectBackground = this.add.rectangle(window.innerWidth/3,window.innerHeight/3 + 60,window.innerWidth/3,300,0xf7e094).setOrigin(0);
 
       // console.log(window.innerHeight/3,this.rectBackground.height);
-      this.musicManager = this.sys.game.config.globals.musicManager;
+      this.musicManager = this.game.config.globals.musicManager;
       
       this.musicButton = this.add.image(window.innerWidth/3 + this.spacing, this.rectBackground.y + this.spacing, 'checkedbox');
       this.musicText = this.add.text(window.innerWidth/3 + this.spacing*2, this.rectBackground.y + this.spacing*0.7, 'Music Enabled', {fontFamily: 'Papyrus', fill: '0x000000', fontSize: 24 });
@@ -54,13 +54,13 @@ class OptionScene extends Phaser.Scene{
     updateAudio() {
         if (this.musicManager.musicOn === false) {
             this.musicButton.setTexture('checkbox');
-            this.sys.game.config.globals.bgMusic.stop();
             this.musicManager.bgMusicPlaying = false;
+            this.game.config.globals.bgMusic.stop();
           } else {
             this.musicButton.setTexture('checkedbox');
             if (this.musicManager.bgMusicPlaying === false) {
-              this.sys.game.config.globals.bgMusic.play();
               this.musicManager.bgMusicPlaying = true;
+              this.game.config.globals.bgMusic.play();
             }
           }
            

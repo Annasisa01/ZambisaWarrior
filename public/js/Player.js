@@ -7,19 +7,22 @@ class Player extends Entity{
         this.health = health;
         this.shield = 100;
         this.speed = 300;
-        this.rage = 0;
+        this.rage = false;
         this.attacked = false;
         this.playingDeath = false;
 
-        // this.scene.events.once('kill', ()=>{
-        //     console.log("i have been called");
-        //     this.playdeath();
-        // })
         //Creating attack1 animation
         anims.create({
             key: 'attack',
-            frames: anims.generateFrameNames(this.textureKey, {prefix: "Warrior_Attack_", start: 1, end: 9, zeroPad: 1, suffix: ".png"}),
+            frames: anims.generateFrameNames(this.textureKey, {prefix: "Warrior_Attack_", start: 1, end: 9, zeroPad: 2, suffix: ".png"}),
             frameRate: 25,
+        });
+
+        //Creating attack2 animation
+        anims.create({
+            key: 'attack2',
+            frames: anims.generateFrameNames(this.textureKey, {prefix: "Warrior_Attack_", start: 1, end: 12, zeroPad: 2, suffix: ".png"}),
+            frameRate: 20,
         });
 
         //Creating idle animation
@@ -82,24 +85,29 @@ class Player extends Entity{
             attacking = true;
         })
 
-        this.dashCombo = scene.input.keyboard.createCombo([this.keys.right || this.keys.left,this.keys.d], {
-            resetOnWrongKey: true,
-            // maxKeyDelay: 0,
-            resetOnMatch: true
-            // deleteOnMatch: false,
-        });
-
-        this.scene.input.keyboard.on('keycombomatch',()=>{
-            console.log("Dash combo matched");
+        this.keys.d.on('down',()=>{
+            this.delayDone();
             attacking = true;
             this.anims.play("dashA",true);
+            if (this.body.blocked.right) {
+                this.x -= 100;
+            }else if (this.body.blocked.left) {
+                this.x += 100;
+            }
                 this.on(Phaser.Animations.Events.ANIMATION_COMPLETE, function(){
                     attacking = false;
                     this.delayDone();
                     this.anims.play("idle",true);
                 });
                 this.attacked = true;
-        })
+        });
+
+        this.keys.s.on('down', ()=>{
+            this.delayDone();
+            this.rage = true;
+            this.setTint(0x857e4c);
+            this.setAlpha(0.5);
+        });
 
     }
 
@@ -120,11 +128,12 @@ class Player extends Entity{
 
     //Update function
     update(){
-        if (this.rage < 100) {
-            this.rage += 0.01;
-        }
+        this.delayDone();
+        // if (this.rage < 100) {
+        //     this.rage += 0.01;
+        // }
         if (this.health < 100 && this.health > 0) {
-            this.health += 0.005;
+            this.health += 0.01;
         }
         this.delayDone();
         //Speed of the sprite when moving
@@ -156,7 +165,7 @@ class Player extends Entity{
                 }
                 
             }
-            if (this.keys.up.isDown || this.keys.w.isDown) {
+            if (this.keys.up.isDown ) {
                 if(this.body.blocked.down){
                     this.body.setVelocityY(-this.speed)
                     this.anims.play("jump",true);
@@ -166,7 +175,7 @@ class Player extends Entity{
                     })
                 }
             }
-            else if (this.keys.down.isDown || this.keys.s.isDown) {
+            else if (this.keys.down.isDown) {
             }
         }
         else{
@@ -174,7 +183,7 @@ class Player extends Entity{
                 if (this.body.blocked.down) {
                     this.body.setVelocityX(0);
                 }
-                this.anims.play("attack",true);
+                this.anims.play("attack2",true);
                 this.on(Phaser.Animations.Events.ANIMATION_COMPLETE, function(){
                     attacking = false;
                     this.delayDone();

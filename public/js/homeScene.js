@@ -34,7 +34,8 @@ class HomeScene extends Phaser.Scene{
         // Loading the the sprite needed for the maps and HUD
         this.load.image('tiles','assets/sheet.png');
         this.load.image('watersheet','assets/WaterTileset.png');
-        this.load.spritesheet('waterfallsheet','assets/WaterTileset.png', { frameWidth: 32, frameHeight: 32 })
+        this.load.spritesheet('waterfallsheet','assets/WaterTileset.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('wind','ImageAssets/wind.png', { frameWidth: 60, frameHeight: 45 })
         this.load.spritesheet('gold','ImageAssets/gold.png', { frameWidth: 16, frameHeight: 16 });
         this.load.spritesheet('health','ImageAssets/health_gem.png',{frameWidth: 16, frameHeight: 16});
         this.load.spritesheet('shield','ImageAssets/shield_gem.png', { frameWidth: 16, frameHeight: 16 });
@@ -53,6 +54,10 @@ class HomeScene extends Phaser.Scene{
             'assets/audio/Soundtrack2.mp3',
             'assets/audio/Soundtrack2.wav'
         ]);
+
+        // Check boxes for enabling and disabling sound
+        this.load.image("checkbox", "ImageAssets/check1.png");
+        this.load.image("checkedbox","ImageAssets/check2.png");
     }
 
     create(){
@@ -127,9 +132,7 @@ class HomeScene extends Phaser.Scene{
         this.spacingY += space;
 
         // exitBtn is exit the game
-        this.exitBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Exit", 10);
+        this.exitBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Quit", 10);
     }
-    update(){
-        
-    }
+
 }

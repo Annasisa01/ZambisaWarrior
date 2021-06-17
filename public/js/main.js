@@ -39,7 +39,7 @@ window.onload = function()
                 debug: false
             }
         },
-        scene: [ HomeScene, LevelOneDisp, OptionScene, InstructionScene, LeaderBoard, SceneMain, LevelTwo, EndGameScene]
+        scene: [  HomeScene, LevelDisplay, OptionScene, InstructionScene, LeaderBoard, SceneMain,PausedScene, LevelOne, LevelTwo, EndGameScene]
     };
 
     // Creating a new game

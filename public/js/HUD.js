@@ -7,7 +7,8 @@ class HUD{
         // Setting player shield to amount received
         this.currentShield = shield;
         // Setting player rage to amount received
-        this.currentRage = rage
+        this.currentRage = 0;
+
         // Setting shieldAmount 
         this.shieldAmount = 50;
         // Setting the location of the HUD
@@ -45,7 +46,7 @@ class HUD{
         // Creating shapes for the powerup in the HUD
         const powerupBackground = new Phaser.Geom.Rectangle(x+310, y+4, 104, 14);
         const powerupBackground2 = new Phaser.Geom.Rectangle(x+312, y+6, 100, 10);
-        const powerupFill = new Phaser.Geom.Rectangle(x+312, y+6, 10, 10);
+        const powerupFill = new Phaser.Geom.Rectangle(x+312, y+6, this.currentRage, 10);
 
         // Creating the healthbar
         this.graphics.fillStyle(0xffffff, 0.5);
@@ -88,11 +89,22 @@ class HUD{
         // Adding title text for the powerup
         this.scene.add.text(x+260, y+2, 'Rage', {fontFamily: 'Papyrus',fontSize: '18px', fill: '#000'}).setScrollFactor(0);
     }
+
+    // update function
     updateHUD(health,shield,rage){
         this.newGraphics.clear();
         this.newSheildGraphics.clear();
         this.newPowerupGraphics.clear();
-        this.scoreText.setText('Au: ' + this.score)
+        this.scoreText.setText('Au: ' + this.score);
+        if (!rage) {
+            if (this.currentRage < 100) {
+                this.currentRage += 0.05;
+                this.powerupFill = new Phaser.Geom.Rectangle(this.x+312, this.y+6, this.currentRage, 10);
+            }
+        }else if (rage) {
+            this.currentRage -= 0.05;
+            this.powerupFill = new Phaser.Geom.Rectangle(this.x+312, this.y+6, this.currentRage, 10);
+        }
         if (health < 0) {
             this.healthBarFill = new Phaser.Geom.Rectangle(this.x+72, this.y+6, 0, 10);
         }else{
@@ -103,11 +115,12 @@ class HUD{
         } else {
             this.shieldFill = new Phaser.Geom.Rectangle(this.x+72, this.y+20,  this.shieldAmount*(shield/100), 6);
         }
-        if (shield < 0) {
-            this.powerupFill = new Phaser.Geom.Rectangle(this.x+312, this.y+6, 10, 10);
-        } else {
-            this.powerupFill = new Phaser.Geom.Rectangle(this.x+312, this.y+6, rage, 10);
-        }
+        // if (shield < 0) {
+        //     this.powerupFill = new Phaser.Geom.Rectangle(this.x+312, this.y+6, 0, 10);
+        // } 
+        // else {
+            
+        // }
         this.newGraphics.fillStyle(0x3587e2, 1);
         this.newGraphics.fillRectShape(this.healthBarFill);
 

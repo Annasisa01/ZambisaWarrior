@@ -1,25 +1,17 @@
-class LightEnemy extends Entity{
+class LightEnemy extends Enemies{
     constructor(scene, x, y, textureKey,type, damage){
         super(scene, x, y, textureKey, type);
-        // console.log(type);
-        this.x = x;
         const anims = scene.anims;
-        this.causedDamage = false;
         this.damage = damage;
-        this.textureKey = textureKey;
-        this.inRange = false;
-        this.attacking = false;
-        this.idle = false;
-        this.aheadOfPlayer = true;
         this.health = 40;
         this.fightingRange = 75;
-        this.contactedPlayer = false;
-        this.attackTimer = 0;
+        this.speed = 150;
 
-        // I can use this timer to set difficulty of the game
-        this.maxTimer = 300/this.scene.game.config.globals.level;
+        // I can use this timer to set difficulty of the enemy
+        this.maxTimer = 100/this.scene.game.config.globals.level;
+
+
         if (this.type == "LightEnemy") {
-            console.log("I am a lightenemy");
             // Animations for lightbandit
             anims.create({
                 key: 'combatIdle',
@@ -145,20 +137,6 @@ class LightEnemy extends Entity{
             this.anims.play('darkbandit_run',true);
         }
 
-        this.speed = 150;
-        let dir = Math.floor(Math.random()*2)
-        switch (dir) {
-            case 0:
-                this.flipX = true;
-                this.body.setVelocity(this.speed,0);
-                break;
-            case 1:
-                this.flipX = false;
-                this.body.setVelocity(-this.speed,0);
-                break;
-            default:
-                break;
-        }
     }
 
     attack(){
@@ -175,9 +153,6 @@ class LightEnemy extends Entity{
     }
 
     update(){
-        // const {speed} = this;
-        
-
         const enemyBlocked = this.body.blocked;
         if (enemyBlocked.left) {
             this.flipX = true
@@ -193,6 +168,7 @@ class LightEnemy extends Entity{
             if (this.inRange) {
                 this.body.setVelocityX(0);
                 if (!this.attacking) {
+                    this.attackTimer += 1;
                     if (this.type == "LightEnemy") {
                         this.anims.play('combatIdle',true)
                     }else{

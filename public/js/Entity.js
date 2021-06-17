@@ -8,11 +8,18 @@ class Entity extends Phaser.GameObjects.Sprite{
         this.scene.physics.world.enableBody(this,0);
         this.type = type;
         this.isDead = false;
+        this.x = x;
+        // const anims = scene.anims;
     }
 
+    // Fucntion that destroys gameobjects when health is 0
     kill(p){
         if(!this.isDead){
             this.isDead = true;
+            /*
+                if game object type is 'Player', start the EndGameScene scene
+                Else, increase the amount of enemies destroyed
+            */
             if (this.type == 'Player') {
                 this.scene.scene.start('EndGameScene',{state: "Player died",au: 0, ekia: 0});
                 this.destroy()
@@ -20,18 +27,6 @@ class Entity extends Phaser.GameObjects.Sprite{
                 console.log(++Entity.enemiesDestroyed);
                 this.destroy()
             }
-            // switch (this.type) {
-            //     case 'Player':
-            //         this.scene.scene.start('EndGameScene',{state: "Player died",au: 0, ekia: 0});
-            //         this.destroy()
-            //         break;
-            //     case 'LightEnemy':
-            //         console.log(++Entity.enemiesDestroyed);
-            //         this.destroy()
-            //         break;
-            //     default:
-            //         break;
-            // }
         }
     }
 }
