@@ -14,7 +14,7 @@ class LevelDisplay extends Phaser.Scene{
             // Swith statement handling what scene to start
             switch (this.currentLevel) {
                 case 1:
-                    this.scene.start('LevelOne');
+                    this.scene.start('LevelThree');
                     break;
                 case 2:
                     this.scene.start('LevelTwo');

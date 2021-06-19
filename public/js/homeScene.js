@@ -42,6 +42,7 @@ class HomeScene extends Phaser.Scene{
         this.load.spritesheet('powerup','ImageAssets/powerup_gem.png', { frameWidth: 16, frameHeight: 16 });
         this.load.tilemapTiledJSON('grassmap','assets/world.json');
         this.load.tilemapTiledJSON('map2','assets/level2.json');
+        this.load.tilemapTiledJSON('map3','assets/level3.json')
 
 
 
