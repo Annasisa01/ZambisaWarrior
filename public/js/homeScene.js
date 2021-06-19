@@ -29,6 +29,7 @@ class HomeScene extends Phaser.Scene{
         this.load.atlas("eyemonster", "ImageAssets/eyemonster.png","ImageAssets/eyemonster.json");
         this.load.atlas("goblinmonster", "ImageAssets/goblinmonster.png","ImageAssets/goblinmonster.json");
         this.load.atlas("mushroommonster", "ImageAssets/mushroommonster.png","ImageAssets/mushroommonster.json");
+        this.load.atlas("boss", "ImageAssets/boss.png", "ImageAssets/boss.json");
 
 
         // Loading the the sprite needed for the maps and HUD

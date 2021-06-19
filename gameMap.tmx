@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="210" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="167">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="210" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="168">
  <editorsettings>
   <export target="public/assets/world.json" format="json"/>
  </editorsettings>
@@ -186,7 +186,7 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="37" name="WaterTileset" tilewidth="32" tileheight="32" tilecount="169" columns="13">
+ <tileset firstgid="37" name="WaterTileset" tilewidth="32" tileheight="32" tilecount="1" columns="13">
   <image source="../WaterTileset.png" width="416" height="416"/>
   <tile id="2">
    <animation>
@@ -196,16 +196,16 @@
    </animation>
   </tile>
  </tileset>
- <tileset firstgid="206" name="gold" tilewidth="16" tileheight="16" tilecount="5" columns="5">
+ <tileset firstgid="40" name="gold" tilewidth="16" tileheight="16" tilecount="5" columns="5">
   <image source="public/ImageAssets/gold.png" width="80" height="16"/>
  </tileset>
- <tileset firstgid="211" name="powerup_gem" tilewidth="16" tileheight="16" tilecount="4" columns="4">
+ <tileset firstgid="45" name="powerup_gem" tilewidth="16" tileheight="16" tilecount="0" columns="4">
   <image source="../Coin_Gems/powerup_gem.png" width="64" height="16"/>
  </tileset>
- <tileset firstgid="215" name="shield_gem" tilewidth="16" tileheight="16" tilecount="4" columns="4">
+ <tileset firstgid="45" name="shield_gem" tilewidth="16" tileheight="16" tilecount="0" columns="4">
   <image source="../Coin_Gems/shield_gem.png" width="64" height="16"/>
  </tileset>
- <tileset firstgid="219" name="door" tilewidth="16" tileheight="32" tilecount="5" columns="5">
+ <tileset firstgid="45" name="door" tilewidth="16" tileheight="32" tilecount="0" columns="5">
   <image source="../door.png" width="80" height="32"/>
  </tileset>
  <layer id="1" name="ground" width="210" height="23">
@@ -237,13 +237,13 @@
  </layer>
  <objectgroup id="2" name="objectLocations">
   <object id="3" name="startPos" x="480" y="604" width="29.1913" height="28.4024"/>
-  <object id="5" name="gold" gid="206" x="648.102" y="344" width="16" height="16"/>
-  <object id="6" name="gold" gid="206" x="680.073" y="344" width="16" height="16"/>
-  <object id="7" name="gold" gid="206" x="712.044" y="344" width="16" height="16"/>
-  <object id="8" name="gold" gid="206" x="744.016" y="344" width="16" height="16"/>
-  <object id="9" name="gold" gid="206" x="775.987" y="344" width="16" height="16"/>
-  <object id="10" name="gold" gid="206" x="809.348" y="344" width="16" height="16"/>
-  <object id="11" name="gold" gid="206" x="839.929" y="344" width="16" height="16"/>
+  <object id="5" name="gold" gid="40" x="648.102" y="344" width="16" height="16"/>
+  <object id="6" name="gold" gid="40" x="680.073" y="344" width="16" height="16"/>
+  <object id="7" name="gold" gid="40" x="712.044" y="344" width="16" height="16"/>
+  <object id="8" name="gold" gid="40" x="744.016" y="344" width="16" height="16"/>
+  <object id="9" name="gold" gid="40" x="775.987" y="344" width="16" height="16"/>
+  <object id="10" name="gold" gid="40" x="809.348" y="344" width="16" height="16"/>
+  <object id="11" name="gold" gid="40" x="839.929" y="344" width="16" height="16"/>
   <object id="12" name="goblinPos" x="1183.22" y="604" width="29.1913" height="28.4024"/>
   <object id="14" name="invisibleWalls" x="3801.95" y="320" width="5" height="95.0353">
    <properties>
@@ -290,72 +290,72 @@
   </object>
   <object id="25" name="startPos" x="4352.31" y="602.097" width="29.1913" height="28.4024"/>
   <object id="26" name="startPos" x="4960.6" y="607.218" width="29.1913" height="28.4024"/>
-  <object id="29" name="gold" gid="206" x="1065.29" y="441.502" width="16" height="16"/>
-  <object id="30" name="gold" gid="206" x="1097.26" y="441.502" width="16" height="16"/>
-  <object id="31" name="gold" gid="206" x="1129.23" y="441.502" width="16" height="16"/>
-  <object id="32" name="gold" gid="206" x="1161.21" y="441.502" width="16" height="16"/>
-  <object id="33" name="gold" gid="206" x="1193.18" y="441.502" width="16" height="16"/>
-  <object id="34" name="gold" gid="206" x="1226.54" y="441.502" width="16" height="16"/>
-  <object id="35" name="gold" gid="206" x="1257.12" y="441.502" width="16" height="16"/>
-  <object id="36" name="gold" gid="206" x="1064.21" y="632.368" width="16" height="16"/>
-  <object id="37" name="gold" gid="206" x="1096.18" y="632.368" width="16" height="16"/>
-  <object id="38" name="gold" gid="206" x="1128.15" y="632.368" width="16" height="16"/>
-  <object id="39" name="gold" gid="206" x="1160.12" y="632.368" width="16" height="16"/>
-  <object id="40" name="gold" gid="206" x="1192.1" y="632.368" width="16" height="16"/>
-  <object id="41" name="gold" gid="206" x="1225.46" y="632.368" width="16" height="16"/>
-  <object id="42" name="gold" gid="206" x="1256.04" y="632.368" width="16" height="16"/>
+  <object id="29" name="gold" gid="40" x="1065.29" y="441.502" width="16" height="16"/>
+  <object id="30" name="gold" gid="40" x="1097.26" y="441.502" width="16" height="16"/>
+  <object id="31" name="gold" gid="40" x="1129.23" y="441.502" width="16" height="16"/>
+  <object id="32" name="gold" gid="40" x="1161.21" y="441.502" width="16" height="16"/>
+  <object id="33" name="gold" gid="40" x="1193.18" y="441.502" width="16" height="16"/>
+  <object id="34" name="gold" gid="40" x="1226.54" y="441.502" width="16" height="16"/>
+  <object id="35" name="gold" gid="40" x="1257.12" y="441.502" width="16" height="16"/>
+  <object id="36" name="gold" gid="40" x="1064.21" y="632.368" width="16" height="16"/>
+  <object id="37" name="gold" gid="40" x="1096.18" y="632.368" width="16" height="16"/>
+  <object id="38" name="gold" gid="40" x="1128.15" y="632.368" width="16" height="16"/>
+  <object id="39" name="gold" gid="40" x="1160.12" y="632.368" width="16" height="16"/>
+  <object id="40" name="gold" gid="40" x="1192.1" y="632.368" width="16" height="16"/>
+  <object id="41" name="gold" gid="40" x="1225.46" y="632.368" width="16" height="16"/>
+  <object id="42" name="gold" gid="40" x="1256.04" y="632.368" width="16" height="16"/>
   <object id="43" name="startPos" x="5024.98" y="315" width="29.1913" height="28.4024"/>
-  <object id="45" name="gold" gid="206" x="1768.68" y="440.878" width="16" height="16"/>
-  <object id="46" name="gold" gid="206" x="1800.65" y="440.878" width="16" height="16"/>
-  <object id="47" name="gold" gid="206" x="1832.62" y="440.878" width="16" height="16"/>
-  <object id="48" name="gold" gid="206" x="1864.6" y="440.878" width="16" height="16"/>
-  <object id="49" name="gold" gid="206" x="1896.57" y="440.878" width="16" height="16"/>
-  <object id="50" name="gold" gid="206" x="1929.93" y="440.878" width="16" height="16"/>
-  <object id="51" name="gold" gid="206" x="1960.51" y="440.878" width="16" height="16"/>
-  <object id="52" name="gold" gid="206" x="2318.01" y="440" width="16" height="16"/>
-  <object id="53" name="gold" gid="206" x="2349.98" y="440" width="16" height="16"/>
-  <object id="54" name="gold" gid="206" x="2381.95" y="440" width="16" height="16"/>
-  <object id="55" name="gold" gid="206" x="2413.93" y="440" width="16" height="16"/>
-  <object id="56" name="gold" gid="206" x="2445.9" y="440" width="16" height="16"/>
-  <object id="57" name="gold" gid="206" x="2479.26" y="440" width="16" height="16"/>
-  <object id="58" name="gold" gid="206" x="2509.84" y="440" width="16" height="16"/>
-  <object id="59" name="gold" gid="206" x="2053.41" y="632" width="16" height="16"/>
-  <object id="60" name="gold" gid="206" x="2085.38" y="632" width="16" height="16"/>
-  <object id="61" name="gold" gid="206" x="2117.35" y="632" width="16" height="16"/>
-  <object id="62" name="gold" gid="206" x="2149.33" y="632" width="16" height="16"/>
-  <object id="63" name="gold" gid="206" x="2181.3" y="632" width="16" height="16"/>
-  <object id="64" name="gold" gid="206" x="2214.66" y="632" width="16" height="16"/>
-  <object id="65" name="gold" gid="206" x="2245.24" y="632" width="16" height="16"/>
-  <object id="66" name="gold" gid="206" x="4101.19" y="345" width="16" height="16"/>
-  <object id="67" name="gold" gid="206" x="4133.16" y="345" width="16" height="16"/>
-  <object id="68" name="gold" gid="206" x="4165.13" y="345" width="16" height="16"/>
-  <object id="69" name="gold" gid="206" x="4197.11" y="345" width="16" height="16"/>
-  <object id="70" name="gold" gid="206" x="4229.08" y="345" width="16" height="16"/>
-  <object id="71" name="gold" gid="206" x="4262.44" y="345" width="16" height="16"/>
-  <object id="72" name="gold" gid="206" x="4293.02" y="345" width="16" height="16"/>
-  <object id="73" name="gold" gid="206" x="5240.4" y="345" width="16" height="16"/>
-  <object id="74" name="gold" gid="206" x="5272.37" y="345" width="16" height="16"/>
-  <object id="75" name="gold" gid="206" x="5304.34" y="345" width="16" height="16"/>
-  <object id="76" name="gold" gid="206" x="5336.32" y="345" width="16" height="16"/>
-  <object id="77" name="gold" gid="206" x="5368.29" y="345" width="16" height="16"/>
-  <object id="78" name="gold" gid="206" x="5401.65" y="345" width="16" height="16"/>
-  <object id="79" name="gold" gid="206" x="5432.23" y="345" width="16" height="16"/>
-  <object id="80" name="gold" gid="206" x="3985.29" y="632" width="16" height="16"/>
-  <object id="81" name="gold" gid="206" x="4017.26" y="632" width="16" height="16"/>
-  <object id="82" name="gold" gid="206" x="4049.23" y="632" width="16" height="16"/>
-  <object id="83" name="gold" gid="206" x="4081.21" y="632" width="16" height="16"/>
-  <object id="84" name="gold" gid="206" x="4113.18" y="632" width="16" height="16"/>
-  <object id="85" name="gold" gid="206" x="4146.54" y="632" width="16" height="16"/>
-  <object id="86" name="gold" gid="206" x="4177.12" y="632" width="16" height="16"/>
-  <object id="87" name="gold" gid="206" x="5328.28" y="632" width="16" height="16"/>
-  <object id="88" name="gold" gid="206" x="5360.25" y="632" width="16" height="16"/>
-  <object id="89" name="gold" gid="206" x="5392.22" y="632" width="16" height="16"/>
-  <object id="90" name="gold" gid="206" x="5424.2" y="632" width="16" height="16"/>
-  <object id="91" name="gold" gid="206" x="5456.17" y="632" width="16" height="16"/>
-  <object id="92" name="gold" gid="206" x="5489.53" y="632" width="16" height="16"/>
-  <object id="93" name="gold" gid="206" x="5520.11" y="632" width="16" height="16"/>
-  <object id="94" name="powerup" gid="211" x="3337.33" y="632" width="16" height="16"/>
-  <object id="95" name="shield" gid="215" x="3433.29" y="632" width="16" height="16"/>
+  <object id="45" name="gold" gid="40" x="1768.68" y="440.878" width="16" height="16"/>
+  <object id="46" name="gold" gid="40" x="1800.65" y="440.878" width="16" height="16"/>
+  <object id="47" name="gold" gid="40" x="1832.62" y="440.878" width="16" height="16"/>
+  <object id="48" name="gold" gid="40" x="1864.6" y="440.878" width="16" height="16"/>
+  <object id="49" name="gold" gid="40" x="1896.57" y="440.878" width="16" height="16"/>
+  <object id="50" name="gold" gid="40" x="1929.93" y="440.878" width="16" height="16"/>
+  <object id="51" name="gold" gid="40" x="1960.51" y="440.878" width="16" height="16"/>
+  <object id="52" name="gold" gid="40" x="2318.01" y="440" width="16" height="16"/>
+  <object id="53" name="gold" gid="40" x="2349.98" y="440" width="16" height="16"/>
+  <object id="54" name="gold" gid="40" x="2381.95" y="440" width="16" height="16"/>
+  <object id="55" name="gold" gid="40" x="2413.93" y="440" width="16" height="16"/>
+  <object id="56" name="gold" gid="40" x="2445.9" y="440" width="16" height="16"/>
+  <object id="57" name="gold" gid="40" x="2479.26" y="440" width="16" height="16"/>
+  <object id="58" name="gold" gid="40" x="2509.84" y="440" width="16" height="16"/>
+  <object id="59" name="gold" gid="40" x="2053.41" y="632" width="16" height="16"/>
+  <object id="60" name="gold" gid="40" x="2085.38" y="632" width="16" height="16"/>
+  <object id="61" name="gold" gid="40" x="2117.35" y="632" width="16" height="16"/>
+  <object id="62" name="gold" gid="40" x="2149.33" y="632" width="16" height="16"/>
+  <object id="63" name="gold" gid="40" x="2181.3" y="632" width="16" height="16"/>
+  <object id="64" name="gold" gid="40" x="2214.66" y="632" width="16" height="16"/>
+  <object id="65" name="gold" gid="40" x="2245.24" y="632" width="16" height="16"/>
+  <object id="66" name="gold" gid="40" x="4101.19" y="345" width="16" height="16"/>
+  <object id="67" name="gold" gid="40" x="4133.16" y="345" width="16" height="16"/>
+  <object id="68" name="gold" gid="40" x="4165.13" y="345" width="16" height="16"/>
+  <object id="69" name="gold" gid="40" x="4197.11" y="345" width="16" height="16"/>
+  <object id="70" name="gold" gid="40" x="4229.08" y="345" width="16" height="16"/>
+  <object id="71" name="gold" gid="40" x="4262.44" y="345" width="16" height="16"/>
+  <object id="72" name="gold" gid="40" x="4293.02" y="345" width="16" height="16"/>
+  <object id="73" name="gold" gid="40" x="5240.4" y="345" width="16" height="16"/>
+  <object id="74" name="gold" gid="40" x="5272.37" y="345" width="16" height="16"/>
+  <object id="75" name="gold" gid="40" x="5304.34" y="345" width="16" height="16"/>
+  <object id="76" name="gold" gid="40" x="5336.32" y="345" width="16" height="16"/>
+  <object id="77" name="gold" gid="40" x="5368.29" y="345" width="16" height="16"/>
+  <object id="78" name="gold" gid="40" x="5401.65" y="345" width="16" height="16"/>
+  <object id="79" name="gold" gid="40" x="5432.23" y="345" width="16" height="16"/>
+  <object id="80" name="gold" gid="40" x="3985.29" y="632" width="16" height="16"/>
+  <object id="81" name="gold" gid="40" x="4017.26" y="632" width="16" height="16"/>
+  <object id="82" name="gold" gid="40" x="4049.23" y="632" width="16" height="16"/>
+  <object id="83" name="gold" gid="40" x="4081.21" y="632" width="16" height="16"/>
+  <object id="84" name="gold" gid="40" x="4113.18" y="632" width="16" height="16"/>
+  <object id="85" name="gold" gid="40" x="4146.54" y="632" width="16" height="16"/>
+  <object id="86" name="gold" gid="40" x="4177.12" y="632" width="16" height="16"/>
+  <object id="87" name="gold" gid="40" x="5328.28" y="632" width="16" height="16"/>
+  <object id="88" name="gold" gid="40" x="5360.25" y="632" width="16" height="16"/>
+  <object id="89" name="gold" gid="40" x="5392.22" y="632" width="16" height="16"/>
+  <object id="90" name="gold" gid="40" x="5424.2" y="632" width="16" height="16"/>
+  <object id="91" name="gold" gid="40" x="5456.17" y="632" width="16" height="16"/>
+  <object id="92" name="gold" gid="40" x="5489.53" y="632" width="16" height="16"/>
+  <object id="93" name="gold" gid="40" x="5520.11" y="632" width="16" height="16"/>
+  <object id="94" name="powerup" x="3337.33" y="632" width="16" height="16"/>
+  <object id="95" name="shield" x="3433.29" y="632" width="16" height="16"/>
   <object id="97" name="water" gid="39" x="4686.92" y="693.903" width="32" height="32"/>
   <object id="98" name="water" gid="39" x="4718.93" y="693.903" width="32" height="32"/>
   <object id="99" name="water" gid="39" x="4750.93" y="693.903" width="32" height="32"/>
@@ -439,5 +439,6 @@
    </properties>
   </object>
   <object id="166" name="goblinPos" x="3841.86" y="603.066" width="31.4725" height="31.4725"/>
+  <object id="167" name="boss" x="221.407" y="611.132" width="29.1913" height="28.4024"/>
  </objectgroup>
 </map>

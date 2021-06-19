@@ -1,0 +1,4535 @@
+{
+	"textures": [
+		{
+			"image": "boss.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1968,
+				"h": 875
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "Boss_dash (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_dash (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 94,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_dash (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 188,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_dash (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 282,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_dash (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 376,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_dash (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 470,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_dash (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 564,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_dash (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					},
+					"frame": {
+						"x": 658,
+						"y": 0,
+						"w": 94,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Boss_walk (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 752,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_walk (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 796,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_walk (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 840,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_walk (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 884,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_walk (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 928,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_walk (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 972,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_walk (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 1016,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_walk (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					},
+					"frame": {
+						"x": 1060,
+						"y": 0,
+						"w": 44,
+						"h": 36
+					}
+				},
+				{
+					"filename": "Boss_idle (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1104,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (10).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1140,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (11).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1176,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (12).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1212,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (13).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1248,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (14).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1284,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (15).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1320,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (16).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1356,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1392,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1428,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1464,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1500,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1536,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1572,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1608,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_idle (9).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 1644,
+						"y": 0,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "Boss_death (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1680,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (10).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1750,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (11).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1820,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (12).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1890,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (13).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 0,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (14).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 70,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (15).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 140,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (16).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 210,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (17).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 280,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (18).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 350,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (19).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 420,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 490,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (20).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 560,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (21).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 630,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (22).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 700,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (23).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 770,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (24).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 840,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (25).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 910,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (26).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 980,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (27).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1050,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (28).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1120,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (29).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1190,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1260,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (30).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1330,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (31).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1400,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (32).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1470,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (33).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1540,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (34).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1610,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (35).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1680,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (36).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1750,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (37).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1820,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (38).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 1890,
+						"y": 38,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (39).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 0,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 70,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (40).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 140,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 210,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 280,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 350,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 420,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_death (9).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 38
+					},
+					"frame": {
+						"x": 490,
+						"y": 76,
+						"w": 70,
+						"h": 38
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 560,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (10).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 647,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (11).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 734,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (12).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 821,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (13).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 908,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (14).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 995,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (15).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1082,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (16).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1169,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (17).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1256,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (18).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1343,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (19).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1430,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1517,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (20).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1604,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (21).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1691,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (22).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1778,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (23).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1865,
+						"y": 76,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (24).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 0,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (25).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 87,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (26).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 174,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (27).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 261,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (28).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 348,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (29).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 435,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 522,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (30).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 609,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 696,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 783,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 870,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 957,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1044,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_spin (9).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 42
+					},
+					"frame": {
+						"x": 1131,
+						"y": 118,
+						"w": 87,
+						"h": 42
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1218,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (10).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1293,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (11).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1368,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (12).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1443,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (13).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1518,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (14).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1593,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (15).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1668,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (16).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1743,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (17).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1818,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (18).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1893,
+						"y": 118,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (19).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 0,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 75,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (20).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 150,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (21).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 225,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (22).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 300,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (23).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 375,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (24).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 450,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (25).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 525,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (26).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 600,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (27).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 675,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (28).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 750,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (29).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 825,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 900,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (30).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 975,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1050,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1125,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1200,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1275,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1350,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_attack_jab (9).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 49
+					},
+					"frame": {
+						"x": 1425,
+						"y": 167,
+						"w": 75,
+						"h": 49
+					}
+				},
+				{
+					"filename": "Boss_taunt (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1500,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (10).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1542,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (11).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1584,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (12).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1626,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (13).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1668,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (14).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1710,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (15).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1752,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (16).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1794,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (17).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1836,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (18).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1878,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 1920,
+						"y": 167,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 0,
+						"y": 220,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 42,
+						"y": 220,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 84,
+						"y": 220,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 126,
+						"y": 220,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 168,
+						"y": 220,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 210,
+						"y": 220,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_taunt (9).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 53
+					},
+					"frame": {
+						"x": 252,
+						"y": 220,
+						"w": 42,
+						"h": 53
+					}
+				},
+				{
+					"filename": "Boss_jump (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 294,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (10).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 445,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (11).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 596,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (12).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 747,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (13).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 898,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (14).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1049,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (15).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1200,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (16).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1351,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (17).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1502,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (18).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1653,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (19).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1804,
+						"y": 220,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 0,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (20).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 151,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (21).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 302,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (22).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 453,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (23).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 604,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (24).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 755,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (25).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 906,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1057,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1208,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1359,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1510,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1661,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 1812,
+						"y": 290,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_jump (9).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 70
+					},
+					"frame": {
+						"x": 0,
+						"y": 360,
+						"w": 151,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (1).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 151,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (10).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 372,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (11).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 593,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (12).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 814,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (13).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1035,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (14).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1256,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (15).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1477,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (16).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1698,
+						"y": 360,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (17).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 0,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (18).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 221,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (19).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 442,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 663,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (20).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 884,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (21).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1105,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (22).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1326,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (23).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1547,
+						"y": 463,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (24).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 0,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (25).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 221,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (26).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 442,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (27).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 663,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (28).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 884,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (29).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1105,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (3).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1326,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (30).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1547,
+						"y": 566,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (31).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 0,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (32).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 221,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (33).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 442,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (34).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 663,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (35).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 884,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (36).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1105,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (37).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1326,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (38).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1547,
+						"y": 669,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (39).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 0,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (4).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 221,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (40).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 442,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (5).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 663,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (6).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 884,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (7).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1105,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (8).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1326,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				},
+				{
+					"filename": "Boss_attack_leap (9).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 103
+					},
+					"frame": {
+						"x": 1547,
+						"y": 772,
+						"w": 221,
+						"h": 103
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:680a00b4331df81f76907d59521077f5:30cfe1f1745d82bdf102da683a003b81:46ed12eff2905e238af2d2a3f055c310$"
+	}
+}

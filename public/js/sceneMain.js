@@ -179,6 +179,13 @@ class SceneMain extends Phaser.Scene{
                     this.enemies.add(goblin);
                     this.physics.add.collider(this.enemies, layer);
                     break;
+                case 'boss':
+                    var boss = new Boss(this, x, y, 'boss', 100);
+                    boss.body.setSize(this.width,this.height,true);
+                    boss.setScale(scaleValue);
+                    // this.enemies.add(boss);
+                    // this.physics.add.collider(this.enemies, layer);
+                    break;
                 case 'gold':
                     const star = this.add.sprite(x, y, 'gold')
                     star.anims.play('goldRotate',true);
