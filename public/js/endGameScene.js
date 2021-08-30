@@ -17,7 +17,8 @@ class EndGameScene extends Phaser.Scene{
     init(data){
         EndGameScene.currentGold = data.au;
         this.currentState = data.state;
-        this.currentXp = Math.floor((data.ekia *117) + (EndGameScene.currentGold * 0.25))
+        this.currentXp = Math.floor((data.ekia *117) + (EndGameScene.currentGold * 0.25));
+        this.game.config.globals.highscore = this.currentXp;
     }
 
 
@@ -35,16 +36,25 @@ class EndGameScene extends Phaser.Scene{
             lastbtn to "Next level"
         */
         if (this.currentState == "Player died") {
+            localStorage.setItem("player_state","Dead");
+            this.sys.game.config.globals.bgMusic.stop();
+            this.sys.game.config.globals.bgMusic = this.sound.add('loss', { volume: 0.2, loop: true });
+            this.sys.game.config.globals.bgMusic.play();
             this.displayText = "Game Over"
+            this.otherBtn = "Quit"
             this.lastBtn = "Home"
         }else if (this.currentState == "Level complete") {
-            if (this.game.config.globals.level >= localStorage.getItem('level')) {
+            localStorage.setItem("player_state","Alive");
+            this.sys.game.config.globals.bgMusic.stop();
+            this.sys.game.config.globals.bgMusic = this.sound.add('victory', { volume: 0.2, loop: true });
+            this.sys.game.config.globals.bgMusic.play();
+            if (this.game.config.globals.level != 3 && this.game.config.globals.level >= localStorage.getItem('level')) {
+                this.displayText = "Level Completed"
                 localStorage.setItem("level",this.game.config.globals.level+1);
+            }else{
+                this.displayText = "The End"
             }
-            //  else{
-            //     this.game.config.globals.level++;
-            // }
-            this.displayText = "Level Completed"
+            this.otherBtn = "Home"
             this.lastBtn = "Next level"
         }
 
@@ -61,18 +71,29 @@ class EndGameScene extends Phaser.Scene{
 
         // Adding all text for this scene
         this.add.text(window.innerWidth/2, window.innerHeight/3.5, this.displayText, {fontFamily: 'Papyrus',fontSize: '100px', fill: '#000000'}).setOrigin(0.5);
-        this.add.text(window.innerWidth/2 - 80, window.innerHeight/3+60, "Au: ", {fontFamily: 'Papyrus',fontSize: '50px', fill: '#000000'}).setOrigin(0.5);
-        this.add.text(window.innerWidth/2 + 150, window.innerHeight/3+60,EndGameScene.currentGold+"Au",{fontFamily: 'Papyrus',fontSize: '50px', fill: '#000000'}).setOrigin(0.5);
+        this.add.text(window.innerWidth/2 - 80, window.innerHeight/3+60, "Gold: ", {fontFamily: 'Papyrus',fontSize: '50px', fill: '#000000'}).setOrigin(0.5);
+        this.add.text(window.innerWidth/2 + 250, window.innerHeight/3+60,EndGameScene.currentGold,{fontFamily: 'Papyrus',fontSize: '50px', fill: '#000000'}).setOrigin(1,0.5);
         this.add.text(window.innerWidth/2 - 100, window.innerHeight/2, "Total: ", {fontFamily: 'Papyrus',fontSize: '50px', fill: '#000000'}).setOrigin(0.5);
-        this.add.text(window.innerWidth/2 + 150, window.innerHeight/2,this.currentXp+"Xp",{fontFamily: 'Papyrus',fontSize: '50px', fill: '#000000'}).setOrigin(0.5);
+        this.add.text(window.innerWidth/2 + 250, window.innerHeight/2,this.currentXp+"Xp",{fontFamily: 'Papyrus',fontSize: '50px', fill: '#000000'}).setOrigin(1,0.5);
 
-        // Adding buttons to navigate the endgame scene
-        // restartBtn would allow the player start the completed level again
-        this.restartBtn = new Button(this,window.innerWidth/2 -150,window.innerHeight/2+50 , "Play again", 10);
-        // nextBtn would start the next level
-        this.nextBtn = new Button(this,window.innerWidth/2 + 60,window.innerHeight/2+50 , this.lastBtn, 10);
-        // exit allows the to quit the game
-        this.exit = new Button(this,window.innerWidth/2- 50,window.innerHeight/2+120 , "Quit", 10);
+        if (this.game.config.globals.level != 3) {
+            // Adding buttons to navigate the endgame scene
+            // restartBtn would allow the player start the completed level again
+            this.restartBtn = new Button(this,window.innerWidth/2 -150,window.innerHeight/2+50 , "Play again", 10);
+            // nextBtn would start the next level
+            this.nextBtn = new Button(this,window.innerWidth/2 + 60,window.innerHeight/2+50 , this.lastBtn, 10);
+            // exit allows the to quit the game
+            this.exit = new Button(this,window.innerWidth/2- 50,window.innerHeight/2+120 , this.otherBtn, 10);
+        }
+        else{
+            // restartBtn would allow the player start the completed level again
+            this.restartBtn = new Button(this,window.innerWidth/2 -150,window.innerHeight/2+50 , "Play again", 10);
+            // nextBtn would start the next level
+            this.homeBtn = new Button(this,window.innerWidth/2 + 60,window.innerHeight/2+50 , "Home", 10);
+            // exit allows the to quit the game
+            this.exit = new Button(this,window.innerWidth/2- 50,window.innerHeight/2+120 , "Quit", 10);
+        }
+        
 
     }
 }

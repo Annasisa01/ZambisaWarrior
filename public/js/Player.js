@@ -1,12 +1,13 @@
 var attacking = false;
 var facingRight =  true;
 class Player extends Entity{
-    constructor(scene, x, y, textureKey, health){
+    constructor(scene, x, y, textureKey, health,speed,shield){
         super(scene, x, y, textureKey,"Player");
         const anims = scene.anims;
-        this.health = health;
-        this.shield = 100;
-        this.speed = 300;
+        this.maxHealth = health
+        this.health = this.maxHealth;
+        this.shield = shield;
+        this.speed = speed;
         this.rage = false;
         this.attacked = false;
         this.playingDeath = false;
@@ -132,8 +133,8 @@ class Player extends Entity{
         // if (this.rage < 100) {
         //     this.rage += 0.01;
         // }
-        if (this.health < 100 && this.health > 0) {
-            this.health += 0.01;
+        if (this.health < this.maxHealth && this.health > 0) {
+            this.health += 0.04;
         }
         this.delayDone();
         //Speed of the sprite when moving
@@ -142,28 +143,29 @@ class Player extends Entity{
             {
                 this.delayDone();
                 this.flipX = false;
-                this.body.setVelocityX(this.speed);
+                this.body.setVelocityX(this.speed/1);
                 if(this.body.blocked.down){
                     this.anims.play('move', true);
                 }
             }
-            else 
+            else if (this.keys.left.isDown && !this.keys.right.isDown)
             {
-                if ((this.keys.left.isDown || this.keys.a.isDown) && !this.keys.right.isDown){
+                // if (this.keys.left.isDown && !this.keys.right.isDown){
                     this.delayDone();
                     this.flipX = true;
-                    this.body.setVelocityX(-300);
+                    this.body.setVelocityX(-this.speed);
                     if(this.body.blocked.down){
                         this.anims.play('move', true);
                     }
-                }
-                else if( this.body.blocked.down){
-                    this.delayDone();
-                    this.body.setVelocityX(0);
-                    this.body.setVelocityY(0);
-                    this.anims.play('idle', true);
-                }
+                // }
                 
+                
+            }
+            else if( this.body.blocked.down){
+                this.delayDone();
+                this.body.setVelocityX(0);
+                this.body.setVelocityY(0);
+                this.anims.play('idle', true);
             }
             if (this.keys.up.isDown ) {
                 if(this.body.blocked.down){

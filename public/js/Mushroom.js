@@ -6,9 +6,10 @@ class Mushroom extends Enemies{
         this.fightingRange = 80;
         this.speed = 60;
         this.damage = damage;
+        this.attackSpeed = 250;
 
         // I can use this timer to set difficulty of the game
-        this.maxTimer = 250/this.scene.game.config.globals.level;
+        this.maxTimer = this.attackSpeed/this.scene.game.config.globals.level;
 
         // creating attack animation
         anims.create({
@@ -140,7 +141,6 @@ class Mushroom extends Enemies{
             if (this.inRange) {
                 this.body.setVelocityX(0);
                 if (!this.attacking) {
-                    console.log("not attack");
                     this.anims.play('mushroom_idle',true);
                     this.attacking = true
                 }

@@ -24,7 +24,7 @@ class Entity extends Phaser.GameObjects.Sprite{
                 this.scene.scene.start('EndGameScene',{state: "Player died",au: 0, ekia: 0});
                 this.destroy()
             } else {
-                console.log(++Entity.enemiesDestroyed);
+                Entity.enemiesDestroyed++;
                 this.destroy()
             }
         }

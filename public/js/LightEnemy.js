@@ -6,9 +6,10 @@ class LightEnemy extends Enemies{
         this.health = 40;
         this.fightingRange = 75;
         this.speed = 150;
+        this.attackSpeed = 175;
 
         // I can use this timer to set difficulty of the enemy
-        this.maxTimer = 100/this.scene.game.config.globals.level;
+        this.maxTimer = this.attackSpeed/this.scene.game.config.globals.level;
 
 
         if (this.type == "LightEnemy") {

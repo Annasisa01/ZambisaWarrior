@@ -7,9 +7,10 @@ class Goblin extends Enemies{
         this.health = 30;
         this.fightingRange = 100;
         this.speed = 100;
+        this.attackSpeed = 250;
 
         // I can use this timer to set difficulty of the game
-        this.maxTimer = 250/this.scene.game.config.globals.level;
+        this.maxTimer = this.attackSpeed/this.scene.game.config.globals.level;
 
         // creating attack animation
         anims.create({
@@ -156,14 +157,11 @@ class Goblin extends Enemies{
             if (this.inRange) {
                 this.body.setVelocityX(0);
                 if (!this.attacking) {
-                    console.log("not attack");
                     this.anims.play('goblin_idle',true)
                     this.attacking = true
                 }else{
                     this.attackTimer += 1;
                     if (this.attackTimer >= this.maxTimer) {
-                        console.log("attack");
-
                         this.attack();
                         this.attackTimer = 0;
                     }

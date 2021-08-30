@@ -14,9 +14,10 @@ class EyeMonster extends Entity{
         this.health = 20;
         this.fightingRange = 100;
         this.speed = 30;
+        this.attackSpeed = 300;
 
         // I use this instance variable to set how fast the enemy attacks
-        this.maxTimer = 300/this.scene.game.config.globals.level;
+        this.maxTimer = this.attackSpeed/this.scene.game.config.globals.level;
         
         // creating attack animation
         anims.create({

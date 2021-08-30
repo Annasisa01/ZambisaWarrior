@@ -3,70 +3,20 @@ class HomeScene extends Phaser.Scene{
         super('HomeScene');
     }
     preload(){
-        // Loading the text box plugin
-        this.load.plugin('rexinputtextplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexinputtextplugin.min.js', true);
-
-        // Loading the background music
-        this.load.audio('theme', [
-            'assets/audio/forest.ogg',
-            'assets/audio/forest.mp3'
-        ]);
-
-        // Loading the background image
-        this.load.image('background','ImageAssets/home_jungle.jpg');
-
-        // Loading the different levels for the parallax background
-        this.load.image('level4','assets/FORESTBACKGROUND/Layers/ground.png');
-        this.load.image('level2','assets/FORESTBACKGROUND/Layers/mountains.png');
-        this.load.image('level5','assets/FORESTBACKGROUND/Layers/plant.png');
-        this.load.image('level3','assets/FORESTBACKGROUND/Layers/plateau.png');
-        this.load.image('level1','assets/FORESTBACKGROUND/Layers/sky.png');
-
-        // Loading the sprites for all the characters
-        this.load.atlas("player", "ImageAssets/player.png", "ImageAssets/player.json");
-        this.load.atlas("lightenemy", "ImageAssets/lightbandit.png","ImageAssets/lightbandit.json");
-        this.load.atlas("darkenemy", "ImageAssets/darkbandit.png", "ImageAssets/darkbandit.json");
-        this.load.atlas("eyemonster", "ImageAssets/eyemonster.png","ImageAssets/eyemonster.json");
-        this.load.atlas("goblinmonster", "ImageAssets/goblinmonster.png","ImageAssets/goblinmonster.json");
-        this.load.atlas("mushroommonster", "ImageAssets/mushroommonster.png","ImageAssets/mushroommonster.json");
-
-
-        // Loading the the sprite needed for the maps and HUD
-        this.load.image('tiles','assets/sheet.png');
-        this.load.image('watersheet','assets/WaterTileset.png');
-        this.load.spritesheet('waterfallsheet','assets/WaterTileset.png', { frameWidth: 32, frameHeight: 32 });
-        this.load.spritesheet('wind','ImageAssets/wind.png', { frameWidth: 60, frameHeight: 45 })
-        this.load.spritesheet('gold','ImageAssets/gold.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('health','ImageAssets/health_gem.png',{frameWidth: 16, frameHeight: 16});
-        this.load.spritesheet('shield','ImageAssets/shield_gem.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('powerup','ImageAssets/powerup_gem.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.tilemapTiledJSON('grassmap','assets/world.json');
-        this.load.tilemapTiledJSON('map2','assets/level2.json');
-        this.load.tilemapTiledJSON('map3','assets/level3.json')
-
-
-
-        // Loading audio files for SFX
-        this.load.audioSprite('sfx', 'assets/audio/fx1.json', [
-            'assets/audio/Soundtrack1.ogg',
-            'assets/audio/Soundtrack1.wav'
-        ]);
-        this.load.audioSprite('sfx2', 'assets/audio/fx2.json', [
-            'assets/audio/Soundtrack2.mp3',
-            'assets/audio/Soundtrack2.wav'
-        ]);
-
-        // Check boxes for enabling and disabling sound
-        this.load.image("checkbox", "ImageAssets/check1.png");
-        this.load.image("checkedbox","ImageAssets/check2.png");
+        loadLeaderBoard();
     }
 
     create(){
         // Initializing a class variable to the musicManager object from the main.js
         this.musicManager = this.sys.game.config.globals.musicManager;
-        if (this.musicManager.musicOn === true && this.musicManager.bgMusicPlaying === false) {
+        if (this.musicManager.musicOn === true && this.musicManager.bgMusicPlaying === true) {
+            this.sys.game.config.globals.bgMusic.stop();
+            this.sys.game.config.globals.bgMusic = this.sound.add('homethemesong', { volume: 0.5, loop: true });
+            this.sys.game.config.globals.bgMusic.play()
+        }
+        else if (this.musicManager.musicOn === true && this.musicManager.bgMusicPlaying === false) {
             // Adding the background music object to a class variable
-            this.bgmusic = this.sound.add('theme', { volume: 0.5, loop: true });
+            this.bgmusic = this.sound.add('homethemesong', { volume: 0.5, loop: true });
             if (!this.sound.locked)
             {
                 // already unlocked so play
@@ -128,6 +78,10 @@ class HomeScene extends Phaser.Scene{
         this.leaderBoardBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Leaderboard", 10);
         this.spacingY += space;
 
+        // leaderBoardBtn would be used to display the leader board for players who have completed the game
+        this.shopBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Shop", 10);
+        this.spacingY += space;
+
         // optionBtn is used to acces the scene where you can off or on background music or sfx
         this.optionBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Options", 10);
         this.spacingY += space;
@@ -135,5 +89,7 @@ class HomeScene extends Phaser.Scene{
         // exitBtn is exit the game
         this.exitBtn = new Button(this, window.innerWidth/2 - 55, window.innerHeight/3 + this.spacingY, "Quit", 10);
     }
+
+    
 
 }

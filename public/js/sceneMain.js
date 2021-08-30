@@ -24,11 +24,16 @@ class SceneMain extends Phaser.Scene{
     }
     
     create() {
+        localStorage.setItem("player_state","Alive");
         this.anims.resumeAll();
         this.physics.world.resume();
         this.gamePaused = false;
         // Importing sound manager
         this.soundManager = this.sys.game.config.globals.musicManager;
+        this.sys.game.config.globals.bgMusic.stop();
+        this.sys.game.config.globals.bgMusic = this.sound.add('levelbgsong', { volume: 0.1, loop: true });
+        this.sys.game.config.globals.bgMusic.play();
+        
         // initializing sounds for sfx to instance variables
         this.music = this.sound.addAudioSprite('sfx');
         this.music2 = this.sound.addAudioSprite('sfx2');
@@ -85,41 +90,86 @@ class SceneMain extends Phaser.Scene{
             repeat: -1   
         });
 
-        // this.anims.create({
-        //     key
-        // })
-
         // Playing sound when entering the game
         if (this.soundManager.soundOn) {
             this.music.play('upper');
-            this.music.setVolume(0.05)
+            this.music.setVolume(0.1)
         }
         
         const width = this.scale.width;
         const height = this.scale.height;
 
-        // Sky background
-        var sky = this.add.image(window.innerWidth/2,window.innerHeight/2,'level1');
-        const scaleX = window.innerWidth / sky.width;
-        const scaleY = window.innerHeight / sky.height;
-        sky.setScale(scaleX,scaleY);
-        sky.setScrollFactor(0);
+        switch (this.game.config.globals.level) {
+            case 1:
+                var sky = this.add.image(window.innerWidth/2,window.innerHeight/2,'Bluelevel10');
+                var scaleX = window.innerWidth / sky.width;
+                var scaleY = window.innerHeight / sky.height;
+                sky.setScale(scaleX,scaleY);
+                sky.setScrollFactor(0);
 
-        // Mountain background
-        createAlligned(this, 3, 'level2', 0.25);
+                createAlligned(this,3,'Bluelevel9',0.2);
+                createAlligned(this,6,'Bluelevel8',0.3);
+                createAlligned(this,9,'Bluelevel7',0.4);
+                createAlligned(this,12,'Bluelevel6',0.5);
+                createAlligned(this,15,'Bluelevel5',0.6);
+                createAlligned(this,18,'Bluelevel4',0.7);
+                createAlligned(this,21,'Bluelevel3',0.8);
+                createAlligned(this,24,'Bluelevel2',0.9);
+                createAlligned(this,27,'Bluelevel1',1);
+                break;
+            case 2:
+                // Sky background
+                var sky = this.add.image(window.innerWidth/2,window.innerHeight/2,'level1');
+                var scaleX = window.innerWidth / sky.width;
+                var scaleY = window.innerHeight / sky.height;
+                sky.setScale(scaleX,scaleY);
+                sky.setScrollFactor(0);
 
-        // Forest background
-        createAlligned(this,6, 'level3', 0.5);
+                // Mountain background
+                createAlligned(this, 3, 'level2', 0.25);
 
-        // Leaves
-        // createAlligned(this, 12, 'level5', 1);
+                // Forest background
+                createAlligned(this,6, 'level3', 0.5);
+
+                // Leaves
+                createAlligned(this, 12, 'level5', 1);
+                break;
+            case 3:
+                // Sky background
+                var skyBack = this.add.image(window.innerWidth/2,window.innerHeight/2,'TheDawn1');
+                var scaleX = window.innerWidth / skyBack.width;
+                var scaleY = window.innerHeight / skyBack.height;
+                skyBack.setScale(scaleX,scaleY);
+                skyBack.setScrollFactor(0);
+                var skyFront = this.add.image(window.innerWidth/2,window.innerHeight/2,'TheDawn2');
+                var scaleX = window.innerWidth / skyFront.width;
+                var scaleY = window.innerHeight / skyFront.height;
+                skyFront.setScale(scaleX,scaleY);
+                skyFront.setScrollFactor(0);
+
+                createAlligned(this,3,'TheDawn3',0.1);
+                createAlligned(this,6,'TheDawn4',0.2);
+                createAlligned(this,9,'TheDawn5',0.4);
+                createAlligned(this,12,'TheDawn6',0.6);
+                createAlligned(this,15,'TheDawn7',0.8);
+                createAlligned(this,15,'TheDawn8',1);
+
+            default:
+                break;
+        }
+
+        
+
+        
 
 
         // Map objects from Tiled.
         const map = this.make.tilemap({key:this.map});
         var tiles = map.addTilesetImage('grassworld','tiles');
+        var tiles2 = map.addTilesetImage('new_spritesheet','tiles2');
+        var items = map.addTilesetImage('items','items');
         var watertiles = map.addTilesetImage('WaterTileset', 'watersheet');
-        var tilesets = [tiles,watertiles];
+        var tilesets = [tiles,tiles2,items,watertiles];
 
         // Creating layer from tiled map
         var layer = map.createLayer('ground',tilesets);
@@ -134,7 +184,7 @@ class SceneMain extends Phaser.Scene{
 
         ///////////////////////////////////////////////////
         //Creating a new player
-        this.player = new Player(this, 100, this.playerPos, 'player', 100);
+        this.player = new Player(this, 100, this.playerPos, 'player', this.game.config.globals.health,this.game.config.globals.speed,this.game.config.globals.shield);
         this.player.setScale(scaleValue);
         this.player.body.setCollideWorldBounds(true);
         this.physics.add.collider(this.player, layer);
@@ -191,6 +241,31 @@ class SceneMain extends Phaser.Scene{
                     rect.body.immovable = true;
                     this.physics.add.collider(this.enemies,rect);
                     break;
+                case 'checkProgress':
+                    var rect = this.add.rectangle(x, y, width, height);
+                    this.physics.add.existing(rect);
+                    rect.body.allowGravity = false;
+                    rect.body.immovable = true;
+                    this.physics.add.collider(this.player,rect,()=>{
+                        if (this.enemies.getChildren().length > 0) {
+                            this.player.x -= 100;
+                            this.time.delayedCall(500,()=>{
+                                alert("you must kill all enemies to clear the level");
+                            },null,this);
+                        } else {
+                            
+                        }
+                        
+                        
+                    });
+                    break;
+                case 'poisonwater':
+                    var pwater = this.add.rectangle(x,y,width,height);
+                    this.physics.add.existing(pwater);
+                    pwater.body.allowGravity = false;
+                    pwater.body.immovable = true;
+                    this.physics.add.overlap(this.player,pwater,this.enteredPoisonWater,null,this);
+                    break;
                 case 'powerup':
                     const powerup = this.add.sprite(x, y,'powerup');
                     powerup.setScale(2);
@@ -221,6 +296,9 @@ class SceneMain extends Phaser.Scene{
                     break;
             }
         });
+
+        // console.log("Printing all children\n"+this.enemies.getChildren().length);
+        
 
         // setting the velocity of all the objects in the enemies group
         this.enemies.children.iterate((child)=>{
@@ -257,7 +335,7 @@ class SceneMain extends Phaser.Scene{
         this.physics.add.overlap(this.player, this.water, this.handlePlayerWaterOverlap, null, this);
 
         //HUD
-        this.hud = new HUD(this, 20, 20, this.player.health, this.player.sheild, this.player.rage);
+        this.hud = new HUD(this, 20, 20, this.player.health, this.player.shield, 0);
 
         this.pauseContainer = this.add.container(window.innerWidth/2, window.innerHeight/2).setAlpha(0).setScrollFactor(0).setDepth(200)
         
@@ -385,17 +463,18 @@ class SceneMain extends Phaser.Scene{
     }
 
     // Callback function to handle picking up powerup
-    usePowerUp(player, powerup){
+    usePowerUp(player,powerup){
         if (this.soundManager.soundOn) {
             this.music.play('Rise1');
             this.music.setVolume(0.3);
         }
         powerup.visible = false;
         powerup.body.enable = false;
-        if (player.rage <= 50) {
-            player.rage += 50;
+        if (this.hud.currentRage <= 50) {
+            
+            this.hud.currentRage += 50;
         } else {
-            player.rage = 100;
+            this.hud.currentRage = 99;
         }
     }
 
@@ -412,6 +491,18 @@ class SceneMain extends Phaser.Scene{
             loop: false
         });
     } // End of handlePlayerWaterOverlap
+
+    enteredPoisonWater(p,w){
+        p.setTint(0xff0000);
+        this.time.addEvent({
+            callback: () =>{
+                p.clearTint();
+                p.health = 0;
+            },
+            callbackscope: this,
+            loop: false
+        });
+    }
 
     // Callback function to handle player collision with enemy
     handlePlayerEnemyCollision(p,e){
