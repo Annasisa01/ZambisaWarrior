@@ -1,4 +1,5 @@
 function checkExistence(name) {
+    console.log("i am here");
     const check = new XMLHttpRequest();
     check.onload = function () {
       console.log(this.responseText);
