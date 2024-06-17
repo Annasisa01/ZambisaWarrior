@@ -1,13 +1,12 @@
 function checkExistence(name) {
-    console.log("i am here");
     const check = new XMLHttpRequest();
     check.onload = function () {
-      console.log(this.responseText);
+      // console.log(this.responseText);
       localStorage.setItem('check_existence', this.responseText);
     }
     check.open("POST", "check_existence.php");
     check.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    check.send('name='+name);
+    check.send('name=' + encodeURIComponent(name));
 }
 
 
